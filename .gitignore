@@ -1,0 +1,11 @@
+*.mid
+ComPoYseDemo.py
+
+pyproject.toml
+setup.cfg
+
+__pycache__
+dist/
+compoyse.egg-info/
+.vscode/
+build/
