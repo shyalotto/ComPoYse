@@ -17,9 +17,9 @@ class Note:
         return [self.velocity.get_velocity(), 
                 self.note_letter.get_letter(), 
                 self.note_letter.get_octave(), 
-                self.start, 
-                self.length, 
-                self.end]
+                self.time.get_start(),
+                self.time.get_length(),
+                self.time.get_end()]
     
     def get_velocity(self):
         return self.velocity.get_velocity()
