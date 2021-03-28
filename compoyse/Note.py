@@ -76,20 +76,20 @@ class Note:
         self.time.set_length(length)
         return
     
-    def alter_velocity(self, amount_to_alter_buy):
-        self.velocity.alter_velocity(amount_to_alter_buy)
+    def alter_velocity(self, amount_to_alter_by):
+        self.velocity.alter_velocity(amount_to_alter_by)
         return
     
-    def alter_octave(self, amount_to_alter_buy):
-        self.note_letter.alter_octave(amount_to_alter_buy)
+    def alter_octave(self, amount_to_alter_by):
+        self.note_letter.alter_octave(amount_to_alter_by)
         return
     
-    def alter_start(self, amount_to_alter_buy):
-        self.time.alter_start(amount_to_alter_buy)
+    def alter_start(self, amount_to_alter_by):
+        self.time.alter_start(amount_to_alter_by)
         return
     
-    def alter_length(self, amount_to_alter_buy):
-        self.time.alter_length(amount_to_alter_buy)
+    def alter_length(self, amount_to_alter_by):
+        self.time.alter_length(amount_to_alter_by)
         return
     
     def augment_length(self, factor_to_augment_by):

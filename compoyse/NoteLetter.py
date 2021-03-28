@@ -1,4 +1,5 @@
 import pretty_midi
+from Exceptions import ValueNotValidMIDIValue
 
 class NoteLetter:
     def __init__(self, letter, octave):
@@ -30,8 +31,8 @@ class NoteLetter:
             self.set_midi_value(new_midi_value)
         return
         
-    def alter_octave(self, amount_to_alter_buy):
-        new_octave = self.octave + amount_to_alter_buy
+    def alter_octave(self, amount_to_alter_by):
+        new_octave = self.octave + amount_to_alter_by
         new_midi_value = self.find_midi_value(self.letter, new_octave)
         if(self.new_midi_value_is_in_midi_value_range(new_midi_value)):
             self.octave = new_octave
@@ -49,4 +50,5 @@ class NoteLetter:
         if(value >= 0 and value <= 127):
             return True
         else:
-            return False
+            raise ValueNotValidMIDIValue(str(value) +
+                                         " is not a valid value for a note (must be greater than or equal to 0 or lesser than or equal to 127).")

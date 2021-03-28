@@ -22,12 +22,12 @@ class Time:
         self.length = length
         return
     
-    def alter_start(self, amount_to_alter_buy):
-        self.start = self.start + amount_to_alter_buy
+    def alter_start(self, amount_to_alter_by):
+        self.start = self.start + amount_to_alter_by
         return
     
-    def alter_length(self, amount_to_alter_buy):
-        self.length = self.length + amount_to_alter_buy
+    def alter_length(self, amount_to_alter_by):
+        self.length = self.length + amount_to_alter_by
         return
     
     def augment_length(self, factor_to_augment_by):

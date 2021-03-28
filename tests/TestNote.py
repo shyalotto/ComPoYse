@@ -2,6 +2,7 @@ import sys
 sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
 import unittest
 from setuptools import find_packages
+from Exceptions import ValueNotValidMIDIValue
 from Note import Note
 import pretty_midi
 
@@ -71,16 +72,14 @@ class TestNote(unittest.TestCase):
         self.assertEquals(test_note.get_velocity(), 90, "Velocity is -10.")
         return
     
-    def test_alter_velocity__exceed_midi_value_range_above__velocity_is_not_set(self):
+    def test_alter_velocity__exceed_midi_value_range_above__value_not_valid_midi_value_exception_raised(self):
         test_note = Note(velocity=100)
-        test_note.alter_velocity(100)
-        self.assertEquals(test_note.get_velocity(), 100, "Velocity is 100.")
+        self.assertRaises(ValueNotValidMIDIValue, test_note.alter_velocity, 100)
         return
     
-    def test_alter_velocity__exceed_midi_value_range_below__velocity_is_not_set(self):
+    def test_alter_velocity__exceed_midi_value_range_below__value_not_valid_midi_value_exception_raised(self):
         test_note = Note(velocity=100)
-        test_note.alter_velocity(-200)
-        self.assertEquals(test_note.get_velocity(), 100, "Velocity is 100.")
+        self.assertRaises(ValueNotValidMIDIValue, test_note.alter_velocity, -200)
         return
     
     def test_alter_octave__increase_by_one__octave_is_increased_by_one(self):
@@ -95,16 +94,14 @@ class TestNote(unittest.TestCase):
         self.assertEquals(test_note.get_octave(), 0, "Octave is 0.")
         return
     
-    def test_alter_octave__exceed_midi_value_range_above__octave_is_not_set(self):
+    def test_alter_octave__exceed_midi_value_range_above__value_not_valid_midi_value_exception_raised(self):
         test_note = Note(octave=1)
-        test_note.alter_octave(100)
-        self.assertEquals(test_note.get_octave(), 1, "Octave is 1.")
+        self.assertRaises(ValueNotValidMIDIValue, test_note.alter_octave, 100)
         return
     
-    def test_alter_octave__exceed_midi_value_range_below__octave_is_not_set(self):
+    def test_alter_octave__exceed_midi_value_range_below__value_not_valid_midi_value_exception_raised(self):
         test_note = Note(octave=1)
-        test_note.alter_octave(-100)
-        self.assertEquals(test_note.get_octave(), 1, "Octave is 1.")
+        self.assertRaises(ValueNotValidMIDIValue, test_note.alter_octave, -100)
         return
     
     def test_alter_start__increase_by_ten__start_is_increased_by_ten(self):

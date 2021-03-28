@@ -1,3 +1,5 @@
+from Exceptions import ValueNotValidMIDIValue
+
 class Velocity:
     def __init__(self, velocity):
         self.set_velocity(velocity)
@@ -11,8 +13,8 @@ class Velocity:
             self.velocity = velocity
         return
     
-    def alter_velocity(self, amount_to_alter_buy):
-        new_velocity = self.velocity + amount_to_alter_buy
+    def alter_velocity(self, amount_to_alter_by):
+        new_velocity = self.velocity + amount_to_alter_by
         if(self.new_velocity_is_in_midi_value_range(new_velocity)):
             self.velocity = new_velocity
         return
@@ -21,4 +23,5 @@ class Velocity:
         if(new_velocity >= 0 and new_velocity <= 127):
             return True
         else:
-            return False
+            raise ValueNotValidMIDIValue(str(new_velocity) + 
+                                         " is not a valid value for velocity (must be greater than or equal to 0 or lesser than or equal to 127).")
