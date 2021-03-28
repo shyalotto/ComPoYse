@@ -18,7 +18,7 @@ class Velocity:
         return
     
     def new_velocity_is_in_midi_value_range(self, new_velocity):
-        if(newVelocity >= 0 and newVelocity <= 127):
+        if(new_velocity >= 0 and new_velocity <= 127):
             return True
         else:
             return False
