@@ -1,1 +1,1 @@
-This is a test for github
+com-poyse (verb) - To create a piece of music whose structure is rigid and execution is flexible.
