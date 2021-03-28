@@ -7,7 +7,7 @@ class Note:
     def __init__(self,
                  velocity=0,
                  letter='C#',
-                 octave=-2,
+                 octave=0,
                  start=0,
                  length=0):
         self.set_note(velocity, letter, octave, start, length)
