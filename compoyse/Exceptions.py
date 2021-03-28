@@ -1,0 +1,2 @@
+class ValueNotValidMIDIValue(Exception):
+    pass
