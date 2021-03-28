@@ -2,8 +2,8 @@ import pretty_midi
 
 class NoteLetter:
     def __init__(self, letter, octave):
-        self.set_letter(letter)
-        self.set_octave(octave)
+        self.letter = letter
+        self.octave = octave
         self.set_midi_value(self.find_midi_value(self.letter, self.octave))
         return
     
@@ -25,7 +25,7 @@ class NoteLetter:
     
     def set_octave(self, octave):
         new_midi_value = self.find_midi_value(self.letter, octave)
-        if(self.new_midi_value_is_in_midi_value_range(new_midi_value):
+        if(self.new_midi_value_is_in_midi_value_range(new_midi_value)):
             self.octave = octave
             self.set_midi_value(new_midi_value)
         return
