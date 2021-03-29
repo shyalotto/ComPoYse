@@ -31,6 +31,7 @@ class TestAudioClip(unittest.TestCase):
         test_af = AudioFile()
         test_af.set_file_name('test_file.wav')
         test_af.set_file_directory('tests\\test_directory')
+        test_ac.set_audio_file(test_af)
         correct_real_path = os.path.realpath(test_af.get_file_directory() + '\\\\' + test_af.get_file_name())
         self.assertEquals(test_ac.get_file_real_path(), correct_real_path, "Real path is correct full directory.")
         return
