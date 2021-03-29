@@ -5,18 +5,11 @@ from Play import Play
 class AudioFile:
     def __init__(self,
                  file_name='',
-                 file_directory='',
-                 start=0,
-                 duration_of_playtime=-1):
+                 file_directory=''):
         self.file_real_path = ''
         self.file_name = file_name
         self.file_directory = file_directory
         self.set_duration_of_file()
-        self.start=start
-        if(duration_of_playtime == -1):
-            self.duration_of_playtime = self.duration
-        else:
-            self.duration_of_playtime = duration_of_playtime
         return
     
     def get_file_name(self):
@@ -28,14 +21,8 @@ class AudioFile:
     def get_file_real_path(self):
         return self.file_real_path
     
-    def get_duration_of_file(self):
+    def get_duration(self):
         return self.duration
-    
-    def get_start(self):
-        return self.start
-    
-    def get_duration_of_playtime(self):
-        return self.duration_of_playtime
     
     def set_file_name(self, file_name):
         self.file_name = file_name
@@ -58,20 +45,6 @@ class AudioFile:
             self.duration = (file.getnframes() / file.getframerate())
             file.close()
         else:
-            self.duration = -1
-        return
-    
-    def set_start(self, start):
-        self.start = start
-        return
-    
-    def set_duration_of_playtime(self, duration):
-        self.duration_of_playtime = duration
-        return
-    
-    def play(self):
-        Play(self.get_file_real_path(),
-             self.get_start(),
-             self.get_duration_of_playtime())
+            self.duration = 0
         return
     

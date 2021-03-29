@@ -2,9 +2,13 @@ import pyaudio
 import wave
 
 class Play:
-    def __init__(self, file_path, start, duration):
-        self.file = self.open_file(file_path)
-        self.play_file(start, duration)
+    def __init__(self):
+        return
+    
+    def play(self, audio_clip):
+        self.file = self.open_file(audio_clip.get_file_real_path())
+        self.play_file(audio_clip.get_start(), 
+                       audio_clip.get_duration_of_playtime())
         self.close_all_open_data()
         return
 
