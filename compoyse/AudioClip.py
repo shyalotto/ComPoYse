@@ -1,7 +1,3 @@
-import wave
-import os
-from Play import Play
-
 class AudioClip:
     def __init__(self, 
                  audio_file=None,
