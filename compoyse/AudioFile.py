@@ -36,7 +36,8 @@ class AudioFile:
     
     def set_file_real_path(self):
         if(self.file_name != '' and self.file_directory != ''):
-            self.file_real_path = os.path.realpath(self.file_directory + '\\' + self.file_name)
+            self.file_real_path = os.path.realpath(self.file_directory + '\\\\' + self.file_name)
+            self.set_duration_of_file()
         return
     
     def set_duration_of_file(self):
