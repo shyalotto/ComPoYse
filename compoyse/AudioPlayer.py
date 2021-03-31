@@ -2,22 +2,17 @@ import pyaudio
 import wave
 import threading
 
-class Play:
+class AudioPlayer:
     def __init__(self):
         return
     
     def play(self, audio_clip):
-        audio_player = AudioPlayer()
-        play_thread = self.create_play_thread(audio_player, audio_clip)
-        play_thread.start()
+        play_audio_thread = self.create_play_audio_thread(audio_clip)
+        play_audio_thread.start()
         return
     
-    def create_play_thread(self, audio_player, audio_clip):
-        return threading.Thread(target=audio_player.play_audio, args=(audio_clip,), daemon=False)
-    
-class AudioPlayer:
-    def __init__(self):
-        return
+    def create_play_audio_thread(self, audio_clip):
+        return threading.Thread(target=self.play_audio, args=(audio_clip,), daemon=False)
     
     def play_audio(self, audio_clip):
         self.open_file(audio_clip.get_file_real_path())
