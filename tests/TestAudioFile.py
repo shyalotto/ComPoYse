@@ -1,5 +1,5 @@
 import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
+sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\wav")
 import os
 from setuptools import find_packages
 from AudioFile import AudioFile

@@ -1,5 +1,5 @@
 import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
+sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi\\Note_dependencies")
 import unittest
 from setuptools import find_packages
 from NoteLetter import NoteLetter
