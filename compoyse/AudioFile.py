@@ -1,6 +1,5 @@
 import wave
 import os
-from Play import Play
 
 class AudioFile:
     def __init__(self,
