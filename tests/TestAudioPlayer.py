@@ -4,6 +4,7 @@ import unittest
 from setuptools import find_packages
 import pyaudio
 import wave
-from Play import Play
 
 class TestAudioPlayer(unittest.TestCase):
+    def __init__(self):
+        return
