@@ -1,4 +1,5 @@
 import sys
+sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
 sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi\\Note_dependencies")
 import pretty_midi
 from Velocity import Velocity
