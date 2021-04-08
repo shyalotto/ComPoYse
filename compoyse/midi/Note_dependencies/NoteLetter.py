@@ -2,10 +2,9 @@ import pretty_midi
 from Exceptions import ValueNotValidMIDIValue
 
 class NoteLetter:
-    def __init__(self, letter, octave):
-        self.letter = letter
-        self.octave = octave
-        self.set_midi_value(self.find_midi_value(self.letter, self.octave))
+    def __init__(self):
+        self.letter = 'C'
+        self.octave = 0
         return
     
     def get_letter(self):

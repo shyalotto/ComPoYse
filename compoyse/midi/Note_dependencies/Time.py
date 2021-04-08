@@ -1,7 +1,7 @@
 class Time:
-    def __init__(self, start, length):
-        self.set_start(start)
-        self.set_length(length)
+    def __init__(self):
+        self.set_start(0)
+        self.set_start(0)
         return
     
     def get_start(self):

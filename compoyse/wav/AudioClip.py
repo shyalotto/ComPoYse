@@ -1,11 +1,8 @@
 class AudioClip:
-    def __init__(self, 
-                 audio_file=None,
-                 start=0,
-                 duration_of_playtime=0):
-        self.audio_file = audio_file
-        self.start = start
-        self.duration_of_playtime = duration_of_playtime
+    def __init__(self):
+        self.audio_file = None
+        self.start = 0
+        self.duration_of_playtime = 0
         return
     
     def get_audio_file(self):

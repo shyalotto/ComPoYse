@@ -2,12 +2,10 @@ import wave
 import os
 
 class AudioFile:
-    def __init__(self,
-                 file_name='',
-                 file_directory=''):
+    def __init__(self):
         self.file_real_path = ''
-        self.file_name = file_name
-        self.file_directory = file_directory
+        self.file_name = ''
+        self.file_directory = ''
         self.set_duration_of_file()
         return
     

@@ -7,13 +7,17 @@ from NoteLetter import NoteLetter
 from Time import Time
 
 class Note:
-    def __init__(self,
-                 velocity=0,
-                 letter='C#',
-                 octave=0,
-                 start=0,
-                 length=0):
-        self.set_note(velocity, letter, octave, start, length)
+    def __init__(self):
+        self.velocity = Velocity()
+        self.velocity.set_velocity(0)
+        
+        self.note_letter = NoteLetter()
+        self.note_letter.set_letter('C')
+        self.note_letter.set_octave(0)
+
+        self.time = Time()
+        self.time.set_start(0)
+        self.time.set_length(0)
         return
     
     def get_note_data(self):
@@ -48,12 +52,6 @@ class Note:
                                 start=self.time.get_start(),
                                 end=self.time.get_end())
         return note
-    
-    def set_note(self, velocity, letter, octave, start, length):
-        self.velocity = Velocity(velocity)
-        self.note_letter = NoteLetter(letter, octave)
-        self.time = Time(start, length)
-        return
     
     def set_velocity(self, velocity):
         self.velocity.set_velocity(velocity)

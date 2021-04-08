@@ -1,8 +1,8 @@
 from Exceptions import ValueNotValidMIDIValue
 
 class Velocity:
-    def __init__(self, velocity):
-        self.set_velocity(velocity)
+    def __init__(self):
+        self.set_velocity(0)
         return
     
     def get_velocity(self):
