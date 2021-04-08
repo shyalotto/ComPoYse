@@ -29,6 +29,4 @@ class Voice:
             current_note.set_start(current_place_in_time)
             midi_instrument.notes.append(current_note.get_midi_data())
             current_place_in_time = current_place_in_time + current_note.get_length()
-            print('CPIT: ' + str(current_place_in_time))
-            print('Current note start: ' + str(current_note.get_start()))
         return midi_instrument
