@@ -23,7 +23,7 @@ class Voice:
 
     def get_midi_data(self):
         current_place_in_time = 0
-        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'))
+        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name='instrument')
         for i in range(0, len(self.notes)):
             current_note = self.get_note_at_index(i)
             current_note.set_start(current_place_in_time)
