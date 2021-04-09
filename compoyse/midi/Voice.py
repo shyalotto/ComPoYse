@@ -6,6 +6,7 @@ from Measure import Measure
 class Voice:
     def __init__(self):
         self.measures = []
+        self.name = 'voice'
         return
 
     def get_length(self):
@@ -16,6 +17,10 @@ class Voice:
 
     def get_measure_at_index(self, index):
         return self.measure[index]
+    
+    def set_name(self, name):
+        self.name = name
+        return
 
     def add_measure(self, measure):
         self.measures.append(measure)
@@ -23,7 +28,7 @@ class Voice:
 
     def get_midi_data(self):
         current_place_in_time = 0
-        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name='instrument')
+        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name=self.name)
         for i in range(0, len(self.measures)):
             current_measure = self.measures[i]
             midi_instrument = self.append_notes_in_measure_to_midi_instrument(current_measure, current_place_in_time, midi_instrument)
