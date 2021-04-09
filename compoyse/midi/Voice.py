@@ -8,6 +8,9 @@ class Voice:
         self.measures = []
         self.name = 'voice'
         return
+    
+    def get_name(self):
+        return self.name
 
     def get_length(self):
         length = 0
@@ -16,7 +19,7 @@ class Voice:
         return length
 
     def get_measure_at_index(self, index):
-        return self.measure[index]
+        return self.measures[index]
     
     def set_name(self, name):
         self.name = name
@@ -28,12 +31,15 @@ class Voice:
 
     def get_midi_data(self):
         current_place_in_time = 0
-        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name=self.name)
+        midi_instrument = self.create_midi_instrument()
         for i in range(0, len(self.measures)):
             current_measure = self.measures[i]
             midi_instrument = self.append_notes_in_measure_to_midi_instrument(current_measure, current_place_in_time, midi_instrument)
             current_place_in_time = current_place_in_time + current_measure.get_length()
         return midi_instrument
+    
+    def create_midi_instrument(self):
+        return pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name=self.name)
     
     def append_notes_in_measure_to_midi_instrument(self, current_measure, current_place_in_time, midi_instrument):
         midi_instrument = current_measure.get_midi_data(current_place_in_time, midi_instrument)

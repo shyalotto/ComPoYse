@@ -3,6 +3,7 @@ sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import unittest
 from setuptools import find_packages
 from Note import Note
+from Measure import Measure
 from Voice import Voice
 from Composition import Composition
 import pretty_midi
@@ -11,10 +12,6 @@ from os import path
 
 class TestComposition(unittest.TestCase):
     def setUp(self):
-        voice_one = Voice()
-        voice_two = Voice()
-        voice_three = Voice()
-
         note_one = Note()
         note_one.set_letter('C')
         note_one.set_octave(4)
@@ -32,10 +29,39 @@ class TestComposition(unittest.TestCase):
         note_three.set_octave(4)
         note_three.set_length(10)
         note_three.set_velocity(100)
-
-        voice_one.add_note(note_one)
-        voice_two.add_note(note_two)
-        voice_three.add_note(note_three)
+        
+        
+        measure_one = Measure()
+        measure_one.add_note(note_one)
+        measure_one.add_note(note_two)
+        measure_one.add_note(note_three)
+        
+        measure_two = Measure()
+        measure_two.add_note(note_one)
+        measure_two.add_note(note_two)
+        measure_two.add_note(note_three)
+        
+        measure_three = Measure()
+        measure_three.add_note(note_one)
+        measure_three.add_note(note_two)
+        measure_three.add_note(note_three)
+        
+        
+        voice_one = Voice()
+        voice_one.add_measure(measure_one)
+        voice_one.add_measure(measure_two)
+        voice_one.add_measure(measure_three)
+        
+        voice_two = Voice()
+        voice_two.add_measure(measure_one)
+        voice_two.add_measure(measure_two)
+        voice_two.add_measure(measure_three)
+        
+        voice_three = Voice()
+        voice_three.add_measure(measure_one)
+        voice_three.add_measure(measure_two)
+        voice_three.add_measure(measure_three)
+        
         
         self.test_composition = Composition()
         self.test_composition.add_voice(voice_one)
@@ -44,11 +70,11 @@ class TestComposition(unittest.TestCase):
         return
     
     def test_get_length__length_is_correct(self):
-        self.assertEquals(self.test_composition.get_length(), 10, 'Length is 10.')
+        self.assertEquals(self.test_composition.get_length(), 60, 'Length is 60.')
         return
     
     def test_get_voice_at_index__voice_is_returned(self):
-        self.assertEquals(self.test_composition.get_voice_at_index(1).get_length(), 5, 'Length is 5.')
+        self.assertEquals(self.test_composition.get_voice_at_index(1).get_length(), 60, 'Length is 60.')
         return
     
     def test_add_voice__voice_is_added(self):
@@ -57,8 +83,13 @@ class TestComposition(unittest.TestCase):
         note_four.set_octave(4)
         note_four.set_length(20)
         note_four.set_velocity(100)
+        
+        measure_four = Measure()
+        measure_four.add_note(note_four)
+        
         voice_four = Voice()
-        voice_four.add_note(note_four)
+        voice_four.add_measure(measure_four)
+        
         self.test_composition.add_voice(voice_four)
         self.assertEquals(self.test_composition.get_voice_at_index(3).get_length(), 20, 'Length is 20.')
         return
