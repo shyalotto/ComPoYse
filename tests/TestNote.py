@@ -40,8 +40,8 @@ class TestNote(unittest.TestCase):
     
     def test_set_rhythmic_value__rhythmic_value_is_set(self):
         test_note = Note()
-        test_note.set_rhythmic_value('quarter')
-        self.assertEquals(test_note.get_rhythmic_value(), 'quarter', "Note is a quarter note.")
+        test_note.set_rhythmic_value(['quarter'])
+        self.assertEquals(test_note.get_rhythmic_value(), ['quarter'], "Note is a quarter note.")
         return
     
     def test_get_midi_data__midi_data_is_returned(self):
@@ -52,7 +52,7 @@ class TestNote(unittest.TestCase):
         test_note.set_velocity(100)
         test_note.set_letter('C')
         test_note.set_octave(5)
-        test_note.set_rhythmic_value('whole')
+        test_note.set_rhythmic_value(['whole'])
         test_note.set_start_and_end(0, test_meter)
         
         test_note_midi_data = test_note.get_midi_data()
