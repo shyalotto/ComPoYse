@@ -35,12 +35,18 @@ class AudioPlayer:
         return 
     
     def set_starting_position(self, start):
-        self.file.setpos(start * self.file.getframerate())
+        self.file.setpos(self.get_starting_position(start))
         return
     
+    def get_starting_position(self, start):
+        return start * self.file.getframerate()
+    
     def write_file_to_stream(self, duration):
-        self.stream.write(self.file.readframes(duration * self.file.getframerate()))
+        self.stream.write(self.get_frames_to_write(duration))
         return
+    
+    def get_frames_to_write(self, duration):
+        return self.file.readframes(duration * self.file.getframerate())
         
     def close_all_open_data(self):
         self.stream.close()
