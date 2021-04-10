@@ -3,6 +3,7 @@ class AudioClip:
         self.audio_file = None
         self.start = 0
         self.duration_of_playtime = 0
+        self.output_device_index = None
         return
     
     def get_audio_file(self):
@@ -17,6 +18,9 @@ class AudioClip:
     def get_file_real_path(self):
         return self.audio_file.get_file_real_path()
     
+    def get_output_device_index(self):
+        return self.output_device_index
+    
     def set_audio_file(self, audio_file):
         self.audio_file = audio_file
         return
@@ -27,4 +31,8 @@ class AudioClip:
     
     def set_duration_of_playtime(self, duration):
         self.duration_of_playtime = duration
+        return
+    
+    def set_output_device_index(self, index):
+        self.output_device_index = index
         return

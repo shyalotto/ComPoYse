@@ -16,7 +16,7 @@ class AudioPlayer:
     
     def play_audio(self, audio_clip):
         self.open_file(audio_clip.get_file_real_path())
-        self.open_stream()
+        self.open_stream(audio_clip)
         self.set_starting_position(audio_clip.get_start())
         self.write_file_to_stream(audio_clip.get_duration_of_playtime())
         self.close_all_open_data()
@@ -26,12 +26,13 @@ class AudioPlayer:
         self.file = wave.open(file_path, "rb") #rb = read only
         return 
     
-    def open_stream(self):
+    def open_stream(self, audio_clip):
         self.pya = pyaudio.PyAudio()
         self.stream = self.pya.open(format=pyaudio.get_format_from_width(self.file.getsampwidth()),
                              channels=self.file.getnchannels(),
                              rate=self.file.getframerate(),
-                             output=True)
+                             output=True,
+                             output_device_index=audio_clip.get_output_device_index())
         return 
     
     def set_starting_position(self, start):
