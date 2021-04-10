@@ -51,5 +51,5 @@ class Voice:
                                                    meter):
         midi_instrument = current_measure.get_midi_data(current_place_in_time, 
                                                         midi_instrument, 
-                                                        eter)
+                                                        meter)
         return midi_instrument
