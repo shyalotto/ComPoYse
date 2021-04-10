@@ -35,3 +35,9 @@ class TestAudioClip(unittest.TestCase):
         correct_real_path = os.path.realpath(test_af.get_file_directory() + '\\\\' + test_af.get_file_name())
         self.assertEquals(test_ac.get_file_real_path(), correct_real_path, "Real path is correct full directory.")
         return
+    
+    def test_set_output_device_index__output_device_index_is_set(self):
+        test_ac = AudioClip()
+        test_ac.set_output_device_index(0)
+        self.assertEquals(test_ac.get_output_device_index(), 0, "Output device index is 0.")
+        return
