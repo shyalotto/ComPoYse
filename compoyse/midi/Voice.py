@@ -29,18 +29,27 @@ class Voice:
         self.measures.append(measure)
         return
 
-    def get_midi_data(self):
+    def get_midi_data(self, meter):
         current_place_in_time = 0
         midi_instrument = self.create_midi_instrument()
         for i in range(0, len(self.measures)):
-            current_measure = self.measures[i]
-            midi_instrument = self.append_notes_in_measure_to_midi_instrument(current_measure, current_place_in_time, midi_instrument)
+            current_measure = self.get_measure_at_index(i)
+            midi_instrument = self.append_notes_in_measure_to_midi_instrument(current_measure, 
+                                                                              current_place_in_time, 
+                                                                              midi_instrument, 
+                                                                              meter)
             current_place_in_time = current_place_in_time + current_measure.get_length()
         return midi_instrument
     
     def create_midi_instrument(self):
         return pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name=self.name)
     
-    def append_notes_in_measure_to_midi_instrument(self, current_measure, current_place_in_time, midi_instrument):
-        midi_instrument = current_measure.get_midi_data(current_place_in_time, midi_instrument)
+    def append_notes_in_measure_to_midi_instrument(self, 
+                                                   current_measure, 
+                                                   current_place_in_time, 
+                                                   midi_instrument, 
+                                                   meter):
+        midi_instrument = current_measure.get_midi_data(current_place_in_time, 
+                                                        midi_instrument, 
+                                                        eter)
         return midi_instrument

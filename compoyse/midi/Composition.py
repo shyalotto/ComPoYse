@@ -2,6 +2,7 @@ import sys
 sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import pretty_midi
 from Voice import Voice
+from Meter import Meter
 
 class Composition:
     def __init__(self):
@@ -21,9 +22,14 @@ class Composition:
         self.voices.append(voice)
         return
     
+    def set_quarter_note_bpm(self, quarter_note_bpm):
+        self.meter = Meter()
+        self.meter.set_length_of_quarter_in_seconds(quarter_note_bpm)
+        return
+    
     def write_midi_data(self, fileName='compoyse_composition'):
         pm = pretty_midi.PrettyMIDI()
         for i in range(0, len(self.voices)):
-            pm.instruments.append(self.voices[i].get_midi_data())
+            pm.instruments.append(self.get_voice_at_index(i).get_midi_data(self.meter))
         pm.write(fileName + '.mid')
         return

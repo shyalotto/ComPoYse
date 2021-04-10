@@ -17,7 +17,7 @@ class Note:
 
         self.time = Time()
         self.time.set_start(0)
-        self.time.set_length(0)
+        self.time.set_rhythmic_value('')
         return
     
     def get_note_data(self):
@@ -43,14 +43,17 @@ class Note:
     def get_start(self):
         return self.time.get_start()
     
-    def get_length(self):
-        return self.time.get_length()
+    def get_rhythmic_value(self):
+        return self.time.get_rhythmic_value()
     
-    def get_midi_data(self):
+    def get_length_in_seconds(self):
+        return self.time.get_length_in_seconds()
+    
+    def get_midi_data(self, meter):
         note = pretty_midi.Note(velocity=self.velocity.get_velocity(),
                                 pitch=self.note_letter.get_midi_value(),
                                 start=self.time.get_start(),
-                                end=self.time.get_end())
+                                end=self.time.get_end(meter))
         return note
     
     def set_velocity(self, velocity):
@@ -73,8 +76,8 @@ class Note:
         self.time.set_start(start)
         return
     
-    def set_length(self, length):
-        self.time.set_length(length)
+    def set_rhythmic_value(self, rhythmic_value):
+        self.time.set_rhythmic_value(rhythmic_value)
         return
     
     def alter_velocity(self, amount_to_alter_by):
