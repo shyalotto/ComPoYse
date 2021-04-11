@@ -1,5 +1,5 @@
 import pretty_midi
-from Exceptions import ValueNotValidMIDIValue
+from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class NoteLetter:
     def __init__(self):

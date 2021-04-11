@@ -1,4 +1,4 @@
-from Exceptions import ValueNotValidMIDIValue
+from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class Velocity:
     def __init__(self):

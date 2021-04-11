@@ -1,7 +1,6 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import pretty_midi
-from Beat import Beat
+from compoyse.midi.Beat import Beat
+
 class Measure:
     def __init__(self):
         self.beats = []

@@ -1,9 +1,6 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\wav")
 import os
-from setuptools import find_packages
-from AudioFile import AudioFile
 import unittest
+from compoyse.wav.AudioFile import AudioFile
 
 class TestAudioFile(unittest.TestCase):
     def test_set_file_name__file_name_is_set(self):

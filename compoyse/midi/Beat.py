@@ -1,6 +1,4 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi\\Note_dependencies")
-from Time import Time
+from compoyse.midi.Beat_dependencies.Time import Time
 
 class Beat:
     def __init__(self):

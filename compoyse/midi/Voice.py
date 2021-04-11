@@ -1,7 +1,5 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import pretty_midi
-from Measure import Measure
+from compoyse.midi.Measure import Measure
 
 class Voice:
     def __init__(self):

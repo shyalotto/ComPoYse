@@ -1,8 +1,5 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi\\Note_dependencies")
 import unittest
-from setuptools import find_packages
-from NoteLetter import NoteLetter
+from compoyse.midi.Beat_dependencies.NoteLetter import NoteLetter
 
 class TestNoteLetter(unittest.TestCase):
     def test_find_midi_value__midi_value_is_100(self):

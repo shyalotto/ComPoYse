@@ -1,11 +1,8 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import unittest
-from setuptools import find_packages
-from Note import Note
-from Measure import Measure
-from Meter import Meter
 import pretty_midi
+from compoyse.midi.Note import Note
+from compoyse.midi.Measure import Measure
+from compoyse.midi.Meter import Meter
 
 class TestMeasure(unittest.TestCase):
     def setUp(self):

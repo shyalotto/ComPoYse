@@ -1,10 +1,7 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi\\Note_dependencies")
 import pretty_midi
-from Beat import Beat
-from Velocity import Velocity
-from NoteLetter import NoteLetter
+from compoyse.midi.Beat import Beat
+from compoyse.midi.Beat_dependencies.Velocity import Velocity
+from compoyse.midi.Beat_dependencies.NoteLetter import NoteLetter
 
 class Note(Beat):
     def __init__(self):
@@ -69,3 +66,4 @@ class Note(Beat):
     
     def is_note(self):
         return True
+    

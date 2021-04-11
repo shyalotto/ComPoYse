@@ -1,12 +1,8 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse")
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import unittest
-from setuptools import find_packages
-from Exceptions import ValueNotValidMIDIValue
-from Note import Note
-from Meter import Meter
 import pretty_midi
+from compoyse.midi.Note import Note
+from compoyse.midi.Meter import Meter
+from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class TestNote(unittest.TestCase):
     def test___init___no_parameters__defaults_are_set(self):

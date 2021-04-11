@@ -1,8 +1,6 @@
-import sys
-sys.path.append("C:\\Users\\ewatts3\\source\\repos\\ComPoYse\\compoyse\\midi")
 import pretty_midi
-from Voice import Voice
-from Meter import Meter
+from compoyse.midi.Voice import Voice
+from compoyse.midi.Meter import Meter
 
 class Composition:
     def __init__(self):
