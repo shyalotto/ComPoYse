@@ -4,6 +4,7 @@ TODO.txt
 
 pyproject.toml
 setup.cfg
+setup.py
 
 __pycache__
 dist/
