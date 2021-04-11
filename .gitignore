@@ -2,12 +2,8 @@
 ComPoYseDemo.py
 TODO.txt
 
-pyproject.toml
-setup.cfg
-setup.py
-
 __pycache__
 dist/
-compoyse.egg-info/
 .vscode/
 build/
+compoyse.egg-info/
