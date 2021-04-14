@@ -44,6 +44,10 @@ class TestMeasure(unittest.TestCase):
         self.assertEquals(self.test_measure.get_beat_at_index(1).get_length_in_seconds(), 1, 'Beats length is 1.')
         return
     
+    def test_get_number_of_notes__number_of_notes_is_returned(self):
+        self.assertEquals(self.test_measure.get_number_of_notes(), 3, 'There are 3 notes.')
+        return
+    
     def test_add_beat__beat_is_added(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)

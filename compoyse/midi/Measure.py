@@ -14,6 +14,9 @@ class Measure:
     
     def get_beat_at_index(self, index):
         return self.beats[index]
+    
+    def get_number_of_notes(self):
+        return len(self.beats)
 
     def add_beat(self, note):
         self.beats.append(note)

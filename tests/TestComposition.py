@@ -122,6 +122,10 @@ class TestComposition(unittest.TestCase):
         self.assertEquals(self.test_composition.get_voice_at_index(1).get_length(), 9, 'Length is 9.')
         return
     
+    def test_get_number_of_voices__number_of_voices_is_returned(self):
+        self.assertEquals(self.test_composition.get_number_of_voices(), 3, 'There are 3 voices.')
+        return
+    
     def test_add_voice__voice_is_added(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)

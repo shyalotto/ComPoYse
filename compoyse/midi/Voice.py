@@ -19,6 +19,9 @@ class Voice:
     def get_measure_at_index(self, index):
         return self.measures[index]
     
+    def get_number_of_measures(self):
+        return len(self.measures)
+    
     def set_name(self, name):
         self.name = name
         return

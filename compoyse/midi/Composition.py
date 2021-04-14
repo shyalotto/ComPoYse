@@ -16,6 +16,9 @@ class Composition:
     def get_voice_at_index(self, index):
         return self.voices[index]
     
+    def get_number_of_voices(self):
+        return len(self.voices)
+    
     def add_voice(self, voice):
         self.voices.append(voice)
         return

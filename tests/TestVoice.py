@@ -102,6 +102,10 @@ class TestVoice(unittest.TestCase):
         self.assertEquals(self.test_voice.get_measure_at_index(1).get_length(), 3, 'Measures length is 3.')
         return
     
+    def test_get_number_of_measures__number_of_measures_is_returned(self):
+        self.assertEquals(self.test_voice.get_number_of_measures(), 3, 'There are 3 measures.')
+        return
+    
     def test_add_measure__measure_is_added(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
