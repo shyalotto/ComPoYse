@@ -147,6 +147,11 @@ class TestSection(unittest.TestCase):
         self.assertEquals(self.test_section.get_voice_at_index(3).get_length(), 1, 'Length is 1.')
         return
     
+    def test_set_identifier__identifier_is_set(self):
+        self.test_section.set_identifier('A')
+        self.assertEquals(self.test_section.get_identifier(), 'A', 'Identifier is A.')
+        return
+    
     def test_write_midi_data__midi_data_is_written(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
