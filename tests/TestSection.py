@@ -6,10 +6,9 @@ from compoyse.midi.Note import Note
 from compoyse.midi.Measure import Measure
 from compoyse.midi.Voice import Voice
 from compoyse.midi.Section import Section
-from compoyse.midi.Composition import Composition
 from compoyse.midi.Meter import Meter
 
-class TestComposition(unittest.TestCase):
+class TestSection(unittest.TestCase):
     def setUp(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
@@ -109,41 +108,25 @@ class TestComposition(unittest.TestCase):
         voice_three.add_measure(measure_three)
         
         
-        section_one = Section()
-        section_one.add_voice(voice_one)
-        section_one.add_voice(voice_two)
-        section_one.add_voice(voice_three)
-        
-        section_two = Section()
-        section_two.add_voice(voice_one)
-        section_two.add_voice(voice_two)
-        section_two.add_voice(voice_three)
-        
-        section_three = Section()
-        section_three.add_voice(voice_one)
-        section_three.add_voice(voice_two)
-        section_three.add_voice(voice_three)
-        
-        
-        self.test_composition = Composition()
-        self.test_composition.add_section(section_one)
-        self.test_composition.add_section(section_two)
-        self.test_composition.add_section(section_three)
+        self.test_section = Section()
+        self.test_section.add_voice(voice_one)
+        self.test_section.add_voice(voice_two)
+        self.test_section.add_voice(voice_three)
         return
     
     def test_get_length__length_is_correct(self):
-        self.assertEquals(self.test_composition.get_length(), 27, 'Length is 27.')
+        self.assertEquals(self.test_section.get_length(), 9, 'Length is 9.')
         return
     
-    def test_get_section_at_index__section_is_returned(self):
-        self.assertEquals(self.test_composition.get_section_at_index(1).get_length(), 9, 'Length is 9.')
+    def test_get_voice_at_index__voice_is_returned(self):
+        self.assertEquals(self.test_section.get_voice_at_index(1).get_length(), 9, 'Length is 9.')
         return
     
-    def test_get_number_of_sections__number_of_sections_is_returned(self):
-        self.assertEquals(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
+    def test_get_number_of_voices__number_of_voices_is_returned(self):
+        self.assertEquals(self.test_section.get_number_of_voices(), 3, 'There are 3 voices.')
         return
     
-    def test_add_section__section_is_added(self):
+    def test_add_voice__voice_is_added(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
         
@@ -160,17 +143,13 @@ class TestComposition(unittest.TestCase):
         voice_four = Voice()
         voice_four.add_measure(measure_four)
         
-        section_four = Section()
-        section_four.add_voice(voice_four)
-        
-        self.test_composition.add_section(section_four)
-        self.assertEquals(self.test_composition.get_section_at_index(3).get_length(), 1, 'Length is 1.')
+        self.test_section.add_voice(voice_four)
+        self.assertEquals(self.test_section.get_voice_at_index(3).get_length(), 1, 'Length is 1.')
         return
     
     def test_write_midi_data__midi_data_is_written(self):
-        self.test_composition.set_quarter_note_bpm(60)
-        self.test_composition.write_midi_data()
-        self.assertTrue(os.path.exists("compoyse_composition.mid"))
-        os.remove("compoyse_composition.mid")
+        test_meter = Meter()
+        test_meter.set_length_of_quarter_in_seconds(60)
+        self.assertEquals(len(self.test_section.get_midi_data(test_meter)), 3, 'There are 3 midi instruments.')
         return
         
