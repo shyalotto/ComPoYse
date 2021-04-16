@@ -110,16 +110,19 @@ class TestComposition(unittest.TestCase):
         
         
         section_one = Section()
+        section_one.set_identifier('A')
         section_one.add_voice(voice_one)
         section_one.add_voice(voice_two)
         section_one.add_voice(voice_three)
         
         section_two = Section()
+        section_two.set_identifier('B')
         section_two.add_voice(voice_one)
         section_two.add_voice(voice_two)
         section_two.add_voice(voice_three)
         
         section_three = Section()
+        section_three.set_identifier('C')
         section_three.add_voice(voice_one)
         section_three.add_voice(voice_two)
         section_three.add_voice(voice_three)
@@ -143,6 +146,10 @@ class TestComposition(unittest.TestCase):
         self.assertEquals(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
         return
     
+    def test_get_current_order_of_sections__order_of_sections_is_returned(self):
+        self.assertEquals(self.test_composition.get_current_order_of_sections(), 'ABC', 'Order is ABC.')
+        return
+        
     def test_add_section__section_is_added(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
@@ -165,6 +172,16 @@ class TestComposition(unittest.TestCase):
         
         self.test_composition.add_section(section_four)
         self.assertEquals(self.test_composition.get_section_at_index(3).get_length(), 1, 'Length is 1.')
+        return
+    
+    def test_arrange_sections__sections_are_arranged(self):
+        order_to_arrange_in = 'CBA'
+        self.test_composition.arrange_sections(order_to_arrange_in)
+        list_of_section_names_in_order = ''
+        for i in range(0, self.test_composition.get_number_of_sections()):
+            section_identifier = self.test_composition.get_section_at_index(i).get_identifier()
+            list_of_section_names_in_order = list_of_section_names_in_order + section_identifier
+        self.assertEquals(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
         return
     
     def test_write_midi_data__midi_data_is_written(self):

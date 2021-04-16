@@ -19,6 +19,13 @@ class Composition:
     def get_number_of_sections(self):
         return len(self.sections)
     
+    def get_current_order_of_sections(self):
+        list_of_section_names_in_order = ''
+        for i in range(0, self.get_number_of_sections()):
+            section_identifier = self.get_section_at_index(i).get_identifier()
+            list_of_section_names_in_order = list_of_section_names_in_order + section_identifier
+        return list_of_section_names_in_order
+    
     def add_section(self, section):
         self.sections.append(section)
         return
@@ -26,6 +33,15 @@ class Composition:
     def set_quarter_note_bpm(self, quarter_note_bpm):
         self.meter = Meter()
         self.meter.set_length_of_quarter_in_seconds(quarter_note_bpm)
+        return
+    
+    def arrange_sections(self, order):
+        new_order = []
+        for i in range(0, len(order)):
+            for j in range(0, len(self.sections)):
+                if order[i] == self.sections[j].get_identifier():
+                    new_order.append(self.sections[j])
+        self.sections = new_order
         return
     
     def write_midi_data(self, fileName='compoyse_composition'):
