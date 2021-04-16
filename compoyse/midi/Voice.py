@@ -30,8 +30,8 @@ class Voice:
         self.measures.append(measure)
         return
 
-    def get_midi_data(self, meter):
-        current_place_in_time = 0
+    def get_midi_data(self, meter, starting_place):
+        current_place_in_time = starting_place
         midi_instrument = self.create_midi_instrument()
         for i in range(0, len(self.measures)):
             current_measure = self.get_measure_at_index(i)

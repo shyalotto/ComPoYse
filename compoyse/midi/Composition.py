@@ -45,10 +45,12 @@ class Composition:
         return
     
     def write_midi_data(self, fileName='compoyse_composition'):
+        current_place_in_time = 0
         pm = pretty_midi.PrettyMIDI()
         for i in range(0, len(self.sections)):
-            midi_instruments_in_section = self.get_section_at_index(i).get_midi_data(self.meter)
+            midi_instruments_in_section = self.get_section_at_index(i).get_midi_data(self.meter, current_place_in_time)
             for j in range(0, len(midi_instruments_in_section)):
                 pm.instruments.append(midi_instruments_in_section[j])
+            current_place_in_time = current_place_in_time + self.get_section_at_index(i).get_length()
         pm.write(fileName + '.mid')
         return

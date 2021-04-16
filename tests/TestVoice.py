@@ -136,7 +136,7 @@ class TestVoice(unittest.TestCase):
     def test_get_midi_data__midi_data_is_returned(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
-        self.assertEquals(self.test_voice.get_midi_data(test_meter).name, 'voice', 'Voices name is voice.')
+        self.assertEquals(self.test_voice.get_midi_data(test_meter, 0).name, 'voice', 'Voices name is voice.')
         return
     
     def test_set_name__name_is_set(self):

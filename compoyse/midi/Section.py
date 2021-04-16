@@ -31,9 +31,9 @@ class Section:
         self.identifier = identifier
         return
     
-    def get_midi_data(self, meter):
-        pm = pretty_midi.PrettyMIDI()
+    def get_midi_data(self, meter, starting_place):
+        #pm = pretty_midi.PrettyMIDI()
         midi_instruments = []
         for i in range(0, len(self.voices)):
-            midi_instruments.append(self.get_voice_at_index(i).get_midi_data(meter))
+            midi_instruments.append(self.get_voice_at_index(i).get_midi_data(meter, starting_place))
         return midi_instruments

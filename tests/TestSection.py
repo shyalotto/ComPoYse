@@ -155,6 +155,6 @@ class TestSection(unittest.TestCase):
     def test_write_midi_data__midi_data_is_written(self):
         test_meter = Meter()
         test_meter.set_length_of_quarter_in_seconds(60)
-        self.assertEquals(len(self.test_section.get_midi_data(test_meter)), 3, 'There are 3 midi instruments.')
+        self.assertEquals(len(self.test_section.get_midi_data(test_meter, 0)), 3, 'There are 3 midi instruments.')
         return
         
