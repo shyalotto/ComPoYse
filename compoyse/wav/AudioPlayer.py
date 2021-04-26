@@ -7,14 +7,6 @@ class AudioPlayer:
         return
     
     def play(self, audio_clip):
-        play_audio_thread = self.create_play_audio_thread(audio_clip)
-        play_audio_thread.start()
-        return
-    
-    def create_play_audio_thread(self, audio_clip):
-        return threading.Thread(target=self.play_audio, args=(audio_clip,), daemon=False)
-    
-    def play_audio(self, audio_clip):
         self.open_file(audio_clip.get_file_real_path())
         self.open_stream(audio_clip)
         self.set_starting_position(audio_clip.get_start())
@@ -27,8 +19,8 @@ class AudioPlayer:
         return 
     
     def open_stream(self, audio_clip):
-        self.pya = pyaudio.PyAudio()
-        self.stream = self.pya.open(format=pyaudio.get_format_from_width(self.file.getsampwidth()),
+        pya = pyaudio.PyAudio()
+        self.stream = pya.open(format=pyaudio.get_format_from_width(self.file.getsampwidth()),
                              channels=self.file.getnchannels(),
                              rate=self.file.getframerate(),
                              output=True,
@@ -50,8 +42,11 @@ class AudioPlayer:
         return self.file.readframes(duration * self.file.getframerate())
         
     def close_all_open_data(self):
-        self.stream.close()
-        self.pya.terminate()
+        # normally it's good housekeeping to close all open data,
+        # but closing these in one place will cause them to close elsewhere
+        # self.stream.close()
+        # self.pya.terminate()
+        
         self.file.close()
         return
     
