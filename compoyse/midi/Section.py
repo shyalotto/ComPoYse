@@ -1,6 +1,6 @@
 import pretty_midi
 from compoyse.midi.Voice import Voice
-from compoyse.midi.Meter import Meter
+from compoyse.midi.Meter import _Meter
 
 class Section:
     def __init__(self):
@@ -32,12 +32,12 @@ class Section:
         return
     
     def set_quarter_note_bpm(self, quarter_note_bpm):
-        self.meter = Meter()
-        self.meter.set_length_of_quarter_in_seconds(quarter_note_bpm)
+        self.meter =  _Meter()
+        self.meter._set_length_of_quarter_in_seconds(quarter_note_bpm)
         return
     
-    def get_midi_data(self, starting_place):
+    def _get_midi_data(self, starting_place):
         midi_instruments = []
         for i in range(0, len(self.voices)):
-            midi_instruments.append(self.get_voice_at_index(i).get_midi_data(self.meter, starting_place))
+            midi_instruments.append(self.get_voice_at_index(i)._get_midi_data(self.meter, starting_place))
         return midi_instruments

@@ -9,14 +9,14 @@ class AudioClip:
     def get_audio_file(self):
         return self.audio_file
     
-    def get_start(self):
+    def _get_start(self):
         return self.start
     
     def get_duration_of_playtime(self):
         return self.duration_of_playtime
     
-    def get_file_real_path(self):
-        return self.audio_file.get_file_real_path()
+    def _get_file_real_path(self):
+        return self.audio_file._get_file_real_path()
     
     def get_output_device_index(self):
         return self.output_device_index

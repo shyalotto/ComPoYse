@@ -1,13 +1,13 @@
-class Meter:
+class _Meter:
     def __init__(self):
         return
     
-    def set_length_of_quarter_in_seconds(self, bpm_length_of_quarter):
+    def _set_length_of_quarter_in_seconds(self, bpm_length_of_quarter):
         NUMBER_OF_SECONDS_IN_A_MINUTE = 60
         self.length_of_quarter_in_seconds = (NUMBER_OF_SECONDS_IN_A_MINUTE / bpm_length_of_quarter)
         return
     
-    def compute_rhythmic_value_length_in_seconds(self, rhythmic_value):
+    def _compute_rhythmic_value_length_in_seconds(self, rhythmic_value):
         length = 0
         for i in range(0, len(rhythmic_value)):
             if(rhythmic_value[i] == 'two_hundred_fifty_sixth'):
