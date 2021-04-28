@@ -94,19 +94,19 @@ class TestVoice(unittest.TestCase):
         self.test_voice.add_measure(measure_three)
         return
         
-    def test_get_length_length_is_correct(self):
+    def test_getLength_whenCalled_shouldReturnLength(self):
         self.assertEquals(self.test_voice.get_length(), 9, 'Length is 9 seconds.')
         return
     
-    def test_get_measure_at_index_measure_is_returned(self):
+    def test_getMeasureAtIndex_givenIndex_shouldReturnMeasure(self):
         self.assertEquals(self.test_voice.get_measure_at_index(1).get_length(), 3, 'Measures length is 3.')
         return
     
-    def test_get_number_of_measures_number_of_measures_is_returned(self):
+    def test_getNumberOfMeasures_whenCalled_shouldReturnNumberOfMeasures(self):
         self.assertEquals(self.test_voice.get_number_of_measures(), 3, 'There are 3 measures.')
         return
     
-    def test_add_measure_measure_is_added(self):
+    def test_addMeasure_givenMeasure_shouldAddMeasure(self):
         test_meter =  _Meter()
         test_meter._set_length_of_quarter_in_seconds(60)
         
@@ -133,13 +133,13 @@ class TestVoice(unittest.TestCase):
         self.assertEquals(self.test_voice.get_measure_at_index(3).get_length(), 2, 'Measures length is 2.')
         return
     
-    def test_get_midi_data_midi_data_is_returned(self):
+    def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
         test_meter =  _Meter()
         test_meter._set_length_of_quarter_in_seconds(60)
         self.assertEquals(self.test_voice._get_midi_data(test_meter, 0).name, 'voice', 'Voices name is voice.')
         return
     
-    def test_set_name_name_is_set(self):
+    def test_setName_givenName_shouldSetName(self):
         self.test_voice.set_name('Trombone')
         self.assertEquals(self.test_voice.get_name(), 'Trombone', 'Name is trombone.')
         return

@@ -137,23 +137,23 @@ class TestComposition(unittest.TestCase):
         self.test_composition.add_section(section_three)
         return
     
-    def test_get_length_length_is_correct(self):
+    def test_getLength_whenCalled_shouldReturnLength(self):
         self.assertEquals(self.test_composition.get_length(), 27, 'Length is 27.')
         return
     
-    def test_get_section_at_index_section_is_returned(self):
+    def test_getSectionAtIndex_givenIndex_shouldReturnSection(self):
         self.assertEquals(self.test_composition.get_section_at_index(1).get_length(), 9, 'Length is 9.')
         return
     
-    def test_get_number_of_sections_number_of_sections_is_returned(self):
+    def test_getNumberOfSections_whenCalled_shouldReturnNumberOfSections(self):
         self.assertEquals(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
         return
     
-    def test_get_current_order_of_sections_order_of_sections_is_returned(self):
+    def test_getCurrentOrderOfSections_whenCalled_returnsCurrentOrderOfSections(self):
         self.assertEquals(self.test_composition.get_current_order_of_sections(), 'ABC', 'Order is ABC.')
         return
         
-    def test_add_section_section_is_added(self):
+    def test_addSection_givenSection_shouldAddSection(self):
         test_meter =  _Meter()
         test_meter._set_length_of_quarter_in_seconds(60)
         
@@ -177,7 +177,7 @@ class TestComposition(unittest.TestCase):
         self.assertEquals(self.test_composition.get_section_at_index(3).get_length(), 1, 'Length is 1.')
         return
     
-    def test_arrange_sections_sections_are_arranged(self):
+    def test_arrangeSections_givenSectionOrder_shouldArrangeSectionsInGivenOrder(self):
         order_to_arrange_in = 'CBA'
         self.test_composition.arrange_sections(order_to_arrange_in)
         list_of_section_names_in_order = ''
@@ -187,7 +187,7 @@ class TestComposition(unittest.TestCase):
         self.assertEquals(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
         return
     
-    def test_write_midi_data_midi_data_is_written(self):
+    def test_writeMIDIData_whenCalled_writesMIDIData(self):
         self.test_composition.write_midi_data()
         self.assertTrue(os.path.exists("compoyse_composition.mid"))
         os.remove("compoyse_composition.mid")
