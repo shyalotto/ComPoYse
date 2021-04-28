@@ -30,11 +30,6 @@ class Composition:
         self.sections.append(section)
         return
     
-    def set_quarter_note_bpm(self, quarter_note_bpm):
-        self.meter = Meter()
-        self.meter.set_length_of_quarter_in_seconds(quarter_note_bpm)
-        return
-    
     def arrange_sections(self, order):
         new_order = []
         for i in range(0, len(order)):
@@ -48,7 +43,7 @@ class Composition:
         current_place_in_time = 0
         pm = pretty_midi.PrettyMIDI()
         for i in range(0, len(self.sections)):
-            midi_instruments_in_section = self.get_section_at_index(i).get_midi_data(self.meter, current_place_in_time)
+            midi_instruments_in_section = self.get_section_at_index(i).get_midi_data(current_place_in_time)
             for j in range(0, len(midi_instruments_in_section)):
                 pm.instruments.append(midi_instruments_in_section[j])
             current_place_in_time = current_place_in_time + self.get_section_at_index(i).get_length()

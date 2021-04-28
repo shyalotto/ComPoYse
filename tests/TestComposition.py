@@ -114,18 +114,21 @@ class TestComposition(unittest.TestCase):
         section_one.add_voice(voice_one)
         section_one.add_voice(voice_two)
         section_one.add_voice(voice_three)
+        section_one.set_quarter_note_bpm(60)
         
         section_two = Section()
         section_two.set_identifier('B')
         section_two.add_voice(voice_one)
         section_two.add_voice(voice_two)
         section_two.add_voice(voice_three)
+        section_two.set_quarter_note_bpm(60)
         
         section_three = Section()
         section_three.set_identifier('C')
         section_three.add_voice(voice_one)
         section_three.add_voice(voice_two)
         section_three.add_voice(voice_three)
+        section_three.set_quarter_note_bpm(60)
         
         
         self.test_composition = Composition()
@@ -185,7 +188,6 @@ class TestComposition(unittest.TestCase):
         return
     
     def test_write_midi_data__midi_data_is_written(self):
-        self.test_composition.set_quarter_note_bpm(60)
         self.test_composition.write_midi_data()
         self.assertTrue(os.path.exists("compoyse_composition.mid"))
         os.remove("compoyse_composition.mid")
