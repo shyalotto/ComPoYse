@@ -6,12 +6,7 @@ from compoyse.midi.Beat_dependencies.NoteLetter import _NoteLetter
 class Note(_Beat):
     def __init__(self):
         self.velocity =_Velocity()
-        self.velocity._set_velocity(0)
-        
         self.note_letter = _NoteLetter()
-        self.note_letter._set_letter('C')
-        self.note_letter._set_octave(0)
-        
         super().__init__()
         return
     
