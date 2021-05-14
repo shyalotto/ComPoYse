@@ -10,12 +10,6 @@ class Voice:
     def get_name(self):
         return self.name
 
-    def get_length(self):
-        length = 0
-        for i in range(0, len(self.measures)):
-            length = length + self.measures[i].get_length()
-        return length
-
     def get_measure_at_index(self, index):
         return self.measures[index]
     
@@ -39,7 +33,8 @@ class Voice:
                                                                               current_place_in_time, 
                                                                               midi_instrument, 
                                                                               meter)
-            current_place_in_time = current_place_in_time + current_measure.get_length()
+            current_place_in_time = current_place_in_time + current_measure._get_length()
+        self.length = current_place_in_time
         return midi_instrument
     
     def _create_midi_instrument(self):
@@ -54,3 +49,6 @@ class Voice:
                                                         midi_instrument, 
                                                         meter)
         return midi_instrument
+    
+    def _get_length(self):
+        return self.length

@@ -8,12 +8,6 @@ class Section:
         self.identifier = ''
         return
     
-    def get_length(self):
-        lengths_of_each_voice = []
-        for i in range(0, len(self.voices)):
-            lengths_of_each_voice.append(self.voices[i].get_length())
-        return max(lengths_of_each_voice)
-    
     def get_voice_at_index(self, index):
         return self.voices[index]
     
@@ -41,3 +35,9 @@ class Section:
         for i in range(0, len(self.voices)):
             midi_instruments.append(self.get_voice_at_index(i)._get_midi_data(self.meter, starting_place))
         return midi_instruments
+    
+    def _get_length(self):
+        length_of_each_voice = []
+        for i in range(0, len(self.voices)):
+            length_of_each_voice.append(self.voices[i]._get_length())
+        return max(length_of_each_voice)

@@ -6,16 +6,10 @@ class Measure:
         self.beats = []
         return
     
-    def get_length(self):
-        length = 0
-        for i in range(0, len(self.beats)):
-            length = length + self.beats[i]._get_length_in_seconds()
-        return length
-    
     def get_beat_at_index(self, index):
         return self.beats[index]
     
-    def get_number_of_notes(self):
+    def get_number_of_beats(self):
         return len(self.beats)
 
     def add_beat(self, note):
@@ -30,4 +24,8 @@ class Measure:
             if current_beat._is_note():
                 midi_instrument.notes.append(current_beat._get_midi_data())
             current_place_in_time = current_place_in_time + current_beat._get_length_in_seconds()
+        self.length = current_place_in_time
         return midi_instrument
+    
+    def _get_length(self):
+        return self.length

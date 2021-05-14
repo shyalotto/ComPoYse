@@ -93,13 +93,9 @@ class TestVoice(unittest.TestCase):
         self.test_voice.add_measure(measure_two)
         self.test_voice.add_measure(measure_three)
         return
-        
-    def test_getLength_whenCalled_shouldReturnLength(self):
-        self.assertEquals(self.test_voice.get_length(), 9, 'Length is 9 seconds.')
-        return
     
     def test_getMeasureAtIndex_givenIndex_shouldReturnMeasure(self):
-        self.assertEquals(self.test_voice.get_measure_at_index(1).get_length(), 3, 'Measures length is 3.')
+        self.assertEquals(self.test_voice.get_measure_at_index(1).get_number_of_beats(), 3, 'Number of beats is 3.')
         return
     
     def test_getNumberOfMeasures_whenCalled_shouldReturnNumberOfMeasures(self):
@@ -130,7 +126,7 @@ class TestVoice(unittest.TestCase):
         
         self.test_voice.add_measure(measure_four)
         
-        self.assertEquals(self.test_voice.get_measure_at_index(3).get_length(), 2, 'Measures length is 2.')
+        self.assertEquals(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 2, 'Number of beats is 2.')
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):

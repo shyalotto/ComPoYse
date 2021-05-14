@@ -36,17 +36,13 @@ class TestMeasure(unittest.TestCase):
         self.test_measure.add_beat(note_two)
         self.test_measure.add_beat(note_three)
         return
-        
-    def test_getLength_whenCalled_shouldReturnLength(self):
-        self.assertEquals(self.test_measure.get_length(), 3, 'Length is 3 seconds.')
-        return
     
     def test_getBeatAtIndex_givenIndex_shouldReturnBeat(self):
         self.assertEquals(self.test_measure.get_beat_at_index(1)._get_length_in_seconds(), 1, 'Beats length is 1.')
         return
     
-    def test_getNumberOfNotes_whenCalled_shouldReturnNumberOfNotes(self):
-        self.assertEquals(self.test_measure.get_number_of_notes(), 3, 'There are 3 notes.')
+    def test_getNumberOfBeats_whenCalled_shouldReturnNumberOfNotes(self):
+        self.assertEquals(self.test_measure.get_number_of_beats(), 3, 'There are 3 notes.')
         return
     
     def test_addBeat_givenNote_shouldAddNote(self):

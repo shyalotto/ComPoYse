@@ -137,12 +137,8 @@ class TestComposition(unittest.TestCase):
         self.test_composition.add_section(section_three)
         return
     
-    def test_getLength_whenCalled_shouldReturnLength(self):
-        self.assertEquals(self.test_composition.get_length(), 27, 'Length is 27.')
-        return
-    
     def test_getSectionAtIndex_givenIndex_shouldReturnSection(self):
-        self.assertEquals(self.test_composition.get_section_at_index(1).get_length(), 9, 'Length is 9.')
+        self.assertEquals(self.test_composition.get_section_at_index(1).get_number_of_voices(), 3, 'Number of voices is 3.')
         return
     
     def test_getNumberOfSections_whenCalled_shouldReturnNumberOfSections(self):
@@ -174,7 +170,8 @@ class TestComposition(unittest.TestCase):
         section_four.add_voice(voice_four)
         
         self.test_composition.add_section(section_four)
-        self.assertEquals(self.test_composition.get_section_at_index(3).get_length(), 1, 'Length is 1.')
+        self.assertEquals(self.test_composition.get_section_at_index(3).get_voice_at_index(0).get_measure_at_index(0).get_beat_at_index(0).get_letter(),
+                          'E', 'Note is E.')
         return
     
     def test_arrangeSections_givenSectionOrder_shouldArrangeSectionsInGivenOrder(self):

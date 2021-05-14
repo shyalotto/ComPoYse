@@ -114,12 +114,8 @@ class TestSection(unittest.TestCase):
         self.test_section.add_voice(voice_three)
         return
     
-    def test_getLength_whenCalled_shouldReturnLength(self):
-        self.assertEquals(self.test_section.get_length(), 9, 'Length is 9.')
-        return
-    
     def test_getVoiceAtIndex_givenIndex_shouldReturnVoice(self):
-        self.assertEquals(self.test_section.get_voice_at_index(1).get_length(), 9, 'Length is 9.')
+        self.assertEquals(self.test_section.get_voice_at_index(1).get_number_of_measures(), 3, 'Number of measures is 3.')
         return
     
     def test_getNumberOfVoices_whenCalled_shouldReturnNumberOfVoices(self):
@@ -144,7 +140,7 @@ class TestSection(unittest.TestCase):
         voice_four.add_measure(measure_four)
         
         self.test_section.add_voice(voice_four)
-        self.assertEquals(self.test_section.get_voice_at_index(3).get_length(), 1, 'Length is 1.')
+        self.assertEquals(self.test_section.get_voice_at_index(3).get_number_of_measures(), 1, 'Number of measures is 1.')
         return
     
     def test_setIdentifier_givenIdentifier_identifierIsSet(self):
