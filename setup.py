@@ -1,3 +1,4 @@
+import pydub
 from setuptools import setup
 from setuptools import find_packages
 
@@ -7,6 +8,8 @@ setup(
     packages = find_packages(include = ['compoyse', 'compoyse.*']),
     install_requires=[
         'pyaudio',
-        'pretty_midi'
+        'pretty_midi',
+        'pydub',
+        'shutil'
     ]
 )
