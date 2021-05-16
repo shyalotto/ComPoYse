@@ -142,10 +142,6 @@ class TestComposition(unittest.TestCase):
     def test_getNumberOfSections_whenCalled_shouldReturnNumberOfSections(self):
         self.assertEqual(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
         return
-    
-    def test_getCurrentOrderOfSections_whenCalled_returnsCurrentOrderOfSections(self):
-        self.assertEqual(self.test_composition.get_current_order_of_sections(), 'ABC', 'Order is ABC.')
-        return
         
     def test_addSection_givenSection_shouldAddSection(self):
         test_meter =  _Meter()
@@ -172,17 +168,7 @@ class TestComposition(unittest.TestCase):
                           'E', 'Note is E.')
         return
     
-    def test_arrangeSections_givenSectionOrder_shouldArrangeSectionsInGivenOrder(self):
-        order_to_arrange_in = 'CBA'
-        self.test_composition.arrange_sections(order_to_arrange_in)
-        list_of_section_names_in_order = ''
-        for i in range(0, self.test_composition.get_number_of_sections()):
-            section_identifier = self.test_composition.get_section_at_index(i).get_identifier()
-            list_of_section_names_in_order = list_of_section_names_in_order + section_identifier
-        self.assertEqual(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
-        return
-    
-    def test_getLength_givenHasSections_shouldReturnLength(self):
+    def test_getLength_givenCompositionHasSections_shouldReturnLength(self):
         test_length = self.test_composition.get_length()
         self.assertEqual(test_length, 27, 'Compositions length is 27.')
     
