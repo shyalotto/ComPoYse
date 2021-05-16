@@ -1,7 +1,5 @@
 import unittest
-import pretty_midi
 import os.path
-from os import path
 from compoyse.midi.Note import Note
 from compoyse.midi.Measure import Measure
 from compoyse.midi.Voice import Voice
