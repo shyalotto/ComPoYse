@@ -39,5 +39,5 @@ class Section:
     def _get_length(self):
         length_of_each_voice = []
         for i in range(0, len(self.voices)):
-            length_of_each_voice.append(self.voices[i]._get_length())
+            length_of_each_voice.append(self.voices[i]._get_length(self.meter))
         return max(length_of_each_voice)

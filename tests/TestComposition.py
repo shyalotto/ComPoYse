@@ -184,6 +184,10 @@ class TestComposition(unittest.TestCase):
         self.assertEquals(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
         return
     
+    def test_getLength_givenHasSections_shouldReturnLength(self):
+        test_length = self.test_composition.get_length()
+        self.assertEquals(test_length, 27, 'Compositions length is 27.')
+    
     def test_writeMIDIData_whenCalled_writesMIDIData(self):
         self.test_composition.write_midi_data()
         self.assertTrue(os.path.exists("compoyse_composition.mid"))

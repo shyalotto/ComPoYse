@@ -24,8 +24,12 @@ class Measure:
             if current_beat._is_note():
                 midi_instrument.notes.append(current_beat._get_midi_data())
             current_place_in_time = current_place_in_time + current_beat._get_length_in_seconds()
-        self.length = current_place_in_time
         return midi_instrument
     
-    def _get_length(self):
-        return self.length
+    def _get_length(self, meter):
+        current_length = 0
+        for i in range(0, len(self.beats)):
+            current_beat = self.beats[i]
+            current_beat._set_start_and_end(0, meter)
+            current_length = current_length + self.beats[i]._get_length_in_seconds()
+        return current_length

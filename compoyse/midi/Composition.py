@@ -34,6 +34,12 @@ class Composition:
         self.sections = new_order
         return
     
+    def get_length(self):
+        current_length = 0
+        for i in range(0, len(self.sections)):
+            current_length = current_length + self.get_section_at_index(i)._get_length()
+        return current_length
+    
     def write_midi_data(self, fileName='compoyse_composition'):
         current_place_in_time = 0
         pm = pretty_midi.PrettyMIDI()
