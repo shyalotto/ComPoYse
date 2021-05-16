@@ -1,6 +1,6 @@
 import pyaudio
 
-class AudioDevice():
+class AudioDeviceInfoRetriever():
     def __init__(self):
         self.pya = pyaudio.PyAudio()
         return
