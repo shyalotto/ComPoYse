@@ -1,7 +1,7 @@
 class _Time:
-    def __init__(self):
+    def __init__(self, rhythmic_value):
         self.start = 0
-        self._set_rhythmic_value('')
+        self._set_rhythmic_value(rhythmic_value)
         self.length_in_seconds = 0
         return
     

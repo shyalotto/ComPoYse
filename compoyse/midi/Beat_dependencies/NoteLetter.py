@@ -2,9 +2,9 @@ import pretty_midi
 from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class _NoteLetter:
-    def __init__(self):
-        self.letter = 'C'
-        self.octave = 0
+    def __init__(self, letter, octave):
+        self.letter = letter
+        self.octave = octave
         return
     
     def _get_letter(self):

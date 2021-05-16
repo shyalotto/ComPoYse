@@ -4,10 +4,14 @@ from compoyse.midi.Beat_dependencies.Velocity import _Velocity
 from compoyse.midi.Beat_dependencies.NoteLetter import _NoteLetter
 
 class Note(_Beat):
-    def __init__(self):
-        self.velocity =_Velocity()
-        self.note_letter = _NoteLetter()
-        super().__init__()
+    def __init__(self,
+                 velocity=0,
+                 letter='C',
+                 octave=0,
+                 rhythmic_value=''):
+        self.velocity = _Velocity(velocity)
+        self.note_letter = _NoteLetter(letter, octave)
+        super().__init__(rhythmic_value)
         return
     
     def get_note_data(self):

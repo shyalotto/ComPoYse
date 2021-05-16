@@ -1,8 +1,8 @@
 from compoyse.midi.Beat_dependencies.Time import _Time
 
 class _Beat:
-    def __init__(self):
-        self.time = _Time()
+    def __init__(self, rhythmic_value=''):
+        self.time = _Time(rhythmic_value)
         return
     
     def get_rhythmic_value(self):

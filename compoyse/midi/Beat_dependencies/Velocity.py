@@ -1,8 +1,8 @@
 from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class _Velocity:
-    def __init__(self):
-        self._set_velocity(0)
+    def __init__(self, velocity):
+        self._set_velocity(velocity)
         return
     
     def _get_velocity(self):
