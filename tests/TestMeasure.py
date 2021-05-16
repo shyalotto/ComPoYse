@@ -38,11 +38,11 @@ class TestMeasure(unittest.TestCase):
         return
     
     def test_getBeatAtIndex_givenIndex_shouldReturnBeat(self):
-        self.assertEquals(self.test_measure.get_beat_at_index(1)._get_length_in_seconds(), 1, 'Beats length is 1.')
+        self.assertEqual(self.test_measure.get_beat_at_index(1)._get_length_in_seconds(), 1, 'Beats length is 1.')
         return
     
     def test_getNumberOfBeats_whenCalled_shouldReturnNumberOfNotes(self):
-        self.assertEquals(self.test_measure.get_number_of_beats(), 3, 'There are 3 notes.')
+        self.assertEqual(self.test_measure.get_number_of_beats(), 3, 'There are 3 notes.')
         return
     
     def test_addBeat_givenNote_shouldAddNote(self):
@@ -55,7 +55,7 @@ class TestMeasure(unittest.TestCase):
         note_four._set_start_and_end(0, test_meter)
         note_four.set_velocity(100)
         self.test_measure.add_beat(note_four)
-        self.assertEquals(self.test_measure.get_beat_at_index(3)._get_length_in_seconds(), 2, 'Beats length is 2.')
+        self.assertEqual(self.test_measure.get_beat_at_index(3)._get_length_in_seconds(), 2, 'Beats length is 2.')
         return
     
     def test_addBeat_givenRest_shouldAddRest(self):
@@ -65,7 +65,7 @@ class TestMeasure(unittest.TestCase):
         rest_four.set_rhythmic_value(['half'])
         rest_four._set_start_and_end(0, test_meter)
         self.test_measure.add_beat(rest_four)
-        self.assertEquals(self.test_measure.get_beat_at_index(3)._get_length_in_seconds(), 2, 'Rests length is 2.')
+        self.assertEqual(self.test_measure.get_beat_at_index(3)._get_length_in_seconds(), 2, 'Rests length is 2.')
         return
     
     def test_getMIDIData_whenCalled_returnsMIDIData(self):
@@ -73,5 +73,5 @@ class TestMeasure(unittest.TestCase):
         test_meter._set_length_of_quarter_in_seconds(60)
         current_place_in_time = 0
         midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name='voice')
-        self.assertEquals(self.test_measure._get_midi_data(current_place_in_time, midi_instrument, test_meter).name, 'voice', 'Voice name is voice.')
+        self.assertEqual(self.test_measure._get_midi_data(current_place_in_time, midi_instrument, test_meter).name, 'voice', 'Voice name is voice.')
         return

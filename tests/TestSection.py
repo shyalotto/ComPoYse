@@ -115,11 +115,11 @@ class TestSection(unittest.TestCase):
         return
     
     def test_getVoiceAtIndex_givenIndex_shouldReturnVoice(self):
-        self.assertEquals(self.test_section.get_voice_at_index(1).get_number_of_measures(), 3, 'Number of measures is 3.')
+        self.assertEqual(self.test_section.get_voice_at_index(1).get_number_of_measures(), 3, 'Number of measures is 3.')
         return
     
     def test_getNumberOfVoices_whenCalled_shouldReturnNumberOfVoices(self):
-        self.assertEquals(self.test_section.get_number_of_voices(), 3, 'There are 3 voices.')
+        self.assertEqual(self.test_section.get_number_of_voices(), 3, 'There are 3 voices.')
         return
     
     def test_addVoice_givenVoice_shouldAddVoice(self):
@@ -140,16 +140,16 @@ class TestSection(unittest.TestCase):
         voice_four.add_measure(measure_four)
         
         self.test_section.add_voice(voice_four)
-        self.assertEquals(self.test_section.get_voice_at_index(3).get_number_of_measures(), 1, 'Number of measures is 1.')
+        self.assertEqual(self.test_section.get_voice_at_index(3).get_number_of_measures(), 1, 'Number of measures is 1.')
         return
     
     def test_setIdentifier_givenIdentifier_identifierIsSet(self):
         self.test_section.set_identifier('A')
-        self.assertEquals(self.test_section.get_identifier(), 'A', 'Identifier is A.')
+        self.assertEqual(self.test_section.get_identifier(), 'A', 'Identifier is A.')
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
         self.test_section.set_quarter_note_bpm(60)
-        self.assertEquals(len(self.test_section._get_midi_data(0)), 3, 'There are 3 midi instruments.')
+        self.assertEqual(len(self.test_section._get_midi_data(0)), 3, 'There are 3 midi instruments.')
         return
         

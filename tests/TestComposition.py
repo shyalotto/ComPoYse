@@ -138,15 +138,15 @@ class TestComposition(unittest.TestCase):
         return
     
     def test_getSectionAtIndex_givenIndex_shouldReturnSection(self):
-        self.assertEquals(self.test_composition.get_section_at_index(1).get_number_of_voices(), 3, 'Number of voices is 3.')
+        self.assertEqual(self.test_composition.get_section_at_index(1).get_number_of_voices(), 3, 'Number of voices is 3.')
         return
     
     def test_getNumberOfSections_whenCalled_shouldReturnNumberOfSections(self):
-        self.assertEquals(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
+        self.assertEqual(self.test_composition.get_number_of_sections(), 3, 'There are 3 sections.')
         return
     
     def test_getCurrentOrderOfSections_whenCalled_returnsCurrentOrderOfSections(self):
-        self.assertEquals(self.test_composition.get_current_order_of_sections(), 'ABC', 'Order is ABC.')
+        self.assertEqual(self.test_composition.get_current_order_of_sections(), 'ABC', 'Order is ABC.')
         return
         
     def test_addSection_givenSection_shouldAddSection(self):
@@ -170,7 +170,7 @@ class TestComposition(unittest.TestCase):
         section_four.add_voice(voice_four)
         
         self.test_composition.add_section(section_four)
-        self.assertEquals(self.test_composition.get_section_at_index(3).get_voice_at_index(0).get_measure_at_index(0).get_beat_at_index(0).get_letter(),
+        self.assertEqual(self.test_composition.get_section_at_index(3).get_voice_at_index(0).get_measure_at_index(0).get_beat_at_index(0).get_letter(),
                           'E', 'Note is E.')
         return
     
@@ -181,12 +181,12 @@ class TestComposition(unittest.TestCase):
         for i in range(0, self.test_composition.get_number_of_sections()):
             section_identifier = self.test_composition.get_section_at_index(i).get_identifier()
             list_of_section_names_in_order = list_of_section_names_in_order + section_identifier
-        self.assertEquals(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
+        self.assertEqual(list_of_section_names_in_order, order_to_arrange_in, 'Order is CBA.')
         return
     
     def test_getLength_givenHasSections_shouldReturnLength(self):
         test_length = self.test_composition.get_length()
-        self.assertEquals(test_length, 27, 'Compositions length is 27.')
+        self.assertEqual(test_length, 27, 'Compositions length is 27.')
     
     def test_writeMIDIData_whenCalled_writesMIDIData(self):
         self.test_composition.write_midi_data()

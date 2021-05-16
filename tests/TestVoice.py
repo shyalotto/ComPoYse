@@ -95,11 +95,11 @@ class TestVoice(unittest.TestCase):
         return
     
     def test_getMeasureAtIndex_givenIndex_shouldReturnMeasure(self):
-        self.assertEquals(self.test_voice.get_measure_at_index(1).get_number_of_beats(), 3, 'Number of beats is 3.')
+        self.assertEqual(self.test_voice.get_measure_at_index(1).get_number_of_beats(), 3, 'Number of beats is 3.')
         return
     
     def test_getNumberOfMeasures_whenCalled_shouldReturnNumberOfMeasures(self):
-        self.assertEquals(self.test_voice.get_number_of_measures(), 3, 'There are 3 measures.')
+        self.assertEqual(self.test_voice.get_number_of_measures(), 3, 'There are 3 measures.')
         return
     
     def test_addMeasure_givenMeasure_shouldAddMeasure(self):
@@ -126,16 +126,16 @@ class TestVoice(unittest.TestCase):
         
         self.test_voice.add_measure(measure_four)
         
-        self.assertEquals(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 2, 'Number of beats is 2.')
+        self.assertEqual(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 2, 'Number of beats is 2.')
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
         test_meter =  _Meter()
         test_meter._set_length_of_quarter_in_seconds(60)
-        self.assertEquals(self.test_voice._get_midi_data(test_meter, 0).name, 'voice', 'Voices name is voice.')
+        self.assertEqual(self.test_voice._get_midi_data(test_meter, 0).name, 'voice', 'Voices name is voice.')
         return
     
     def test_setName_givenName_shouldSetName(self):
         self.test_voice.set_name('Trombone')
-        self.assertEquals(self.test_voice.get_name(), 'Trombone', 'Name is trombone.')
+        self.assertEqual(self.test_voice.get_name(), 'Trombone', 'Name is trombone.')
         return
