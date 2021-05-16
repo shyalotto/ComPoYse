@@ -1,9 +1,10 @@
 import unittest
 from compoyse.wav.AudioDeviceInfoRetriever import AudioDeviceInfoRetriever
 
-class TestAudioClip(unittest.TestCase):
+class TestAudioDeviceInfoRetriever(unittest.TestCase):
     def setUp(self):
         self.test_adir = AudioDeviceInfoRetriever()
+        return
     
     def test_getDeviceCount_whenCalled_shouldReturnDeviceCount(self):
         self.assertTrue(self.test_adir.get_device_count() is not None)
