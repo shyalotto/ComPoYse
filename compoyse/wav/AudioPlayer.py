@@ -31,7 +31,7 @@ class AudioPlayer:
         self.file.setpos(self._get_starting_position(start))
         return
     
-    def __get_starting_position(self, start):
+    def _get_starting_position(self, start):
         return start * self.file.getframerate()
     
     def _write_file_to_stream(self, duration):
