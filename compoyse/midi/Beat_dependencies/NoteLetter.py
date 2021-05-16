@@ -3,8 +3,11 @@ from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class _NoteLetter:
     def __init__(self, letter, octave):
-        self.letter = letter
-        self.octave = octave
+        new_midi_value = self._find_midi_value(letter, octave)
+        if(self._new_midi_value_is_in_midi_value_range(new_midi_value)):
+            self.letter = letter
+            self.octave = octave
+            self._set_midi_value(new_midi_value)
         return
     
     def _get_letter(self):
