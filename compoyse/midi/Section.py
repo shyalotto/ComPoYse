@@ -1,5 +1,3 @@
-import pretty_midi
-from compoyse.midi.Voice import Voice
 from compoyse.midi.Meter import _Meter
 
 class Section:
