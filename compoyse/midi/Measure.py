@@ -1,6 +1,3 @@
-import pretty_midi
-from compoyse.midi.Beat import _Beat
-
 class Measure:
     def __init__(self):
         self.beats = []
