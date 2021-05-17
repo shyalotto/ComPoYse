@@ -1,7 +1,7 @@
 from compoyse.midi.Beat_dependencies.Time import _Time
 
 class _Beat:
-    def __init__(self, rhythmic_value=''):
+    def __init__(self, rhythmic_value=['quarter']):
         self.time = _Time(rhythmic_value)
         return
     

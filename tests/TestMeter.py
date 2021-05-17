@@ -1,3 +1,4 @@
+from compoyse.midi.MIDIExceptions import ValueNotValidRhythmicValue
 import unittest
 from compoyse.midi.Meter import _Meter
 
@@ -17,4 +18,14 @@ class TestMeter(unittest.TestCase):
         test_rhythm = [3, 'quarter', 'quarter']
         test_length = self.test_meter._compute_rhythmic_value_length_in_seconds(test_rhythm)
         self.assertEqual(test_length, (2/3), 'Rhythm length in seconds is (2/3).')
+        return
+    
+    def test_computeRhythmicValueLengthInSeconds_givenInvalidRhythmicValue_shouldRaiseValueNotValidRhythmicValueException(self):
+        test_rhythm = ['thisisaninvalidrhythm']
+        self.assertRaises(ValueNotValidRhythmicValue, self.test_meter._compute_rhythmic_value_length_in_seconds, test_rhythm)
+        return
+    
+    def test_computeRhythmicValueLengthInSeconds_givenInvalidTupletRhythmicValue_shouldRaiseValueNotValidRhythmicValueException(self):
+        test_rhythm = ['quarter', 3]
+        self.assertRaises(ValueNotValidRhythmicValue, self.test_meter._compute_rhythmic_value_length_in_seconds, test_rhythm)
         return

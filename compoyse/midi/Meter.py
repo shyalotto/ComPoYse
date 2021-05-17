@@ -1,3 +1,5 @@
+from compoyse.midi.MIDIExceptions import ValueNotValidRhythmicValue
+
 class _Meter:
     def __init__(self):
         return
@@ -42,3 +44,4 @@ class _Meter:
             return (self.length_of_quarter_in_seconds * 2)
         elif(rhythmic_value == 'whole'):
             return (self.length_of_quarter_in_seconds * 4)
+        raise ValueNotValidRhythmicValue(str(rhythmic_value) + ' is not a valid rhythmic value.')

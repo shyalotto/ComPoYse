@@ -1,10 +1,11 @@
+from compoyse.midi.MIDIExceptions import ValueNotValidRhythmicValue
 from tests.TestMIDI import TestMIDI
 from compoyse.midi.Note import Note
 
 class TestNote(TestMIDI):
     def test__init__whenCalled_shouldSetDefaultValues(self):
         test_note = Note()
-        self.assertEqual(test_note.get_note_data(), [0,'C', 0, ''], "Notes values are the default parameters.")
+        self.assertEqual(test_note.get_note_data(), [0,'C', 0, ['quarter']], "Notes values are the default parameters.")
         return
     
     def test_setVelocity_givenVelocity_shouldSetVelocity(self):
@@ -30,6 +31,10 @@ class TestNote(TestMIDI):
     def test_setRhythmicValue_givenRhythmicValue_shouldSetRhythmicValue(self):
         self.test_note.set_rhythmic_value(['quarter'])
         self.assertEqual(self.test_note.get_rhythmic_value(), ['quarter'], "Note is a quarter note.")
+        return
+    
+    def test_setRhythmicValue_givenInvalidRhythmicValue_shouldRaiseValueNotValidRhythmicValueException(self):
+        self.assertRaises(ValueNotValidRhythmicValue, self.test_note.set_rhythmic_value, ['quarter', 0])
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
