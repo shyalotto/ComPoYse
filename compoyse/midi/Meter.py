@@ -9,23 +9,33 @@ class _Meter:
     
     def _compute_rhythmic_value_length_in_seconds(self, rhythmic_value):
         length = 0
-        for i in range(0, len(rhythmic_value)):
-            if(rhythmic_value[i] == 'two_hundred_fifty_sixth'):
-                length = length + (self.length_of_quarter_in_seconds / 64)
-            elif(rhythmic_value[i] == 'one_hundred_twenty_eighth'):
-                length = length + (self.length_of_quarter_in_seconds / 32)
-            elif(rhythmic_value[i] == 'sixty_fourth'):
-                length = length + (self.length_of_quarter_in_seconds / 16)
-            elif(rhythmic_value[i] == 'thirty_secondth'):
-                length = length + (self.length_of_quarter_in_seconds / 8)
-            elif(rhythmic_value[i] == 'sixteenth'):
-                length = length + (self.length_of_quarter_in_seconds / 4)
-            elif(rhythmic_value[i] == 'eighth'):
-                length = length + (self.length_of_quarter_in_seconds / 2)
-            elif(rhythmic_value[i] == 'quarter'):
-                length = length + (self.length_of_quarter_in_seconds * 1)
-            elif(rhythmic_value[i] == 'half'):
-                length = length + (self.length_of_quarter_in_seconds * 2)
-            elif(rhythmic_value[i] == 'whole'):
-                length = length + (self.length_of_quarter_in_seconds * 4)
+        
+        if(not isinstance(rhythmic_value[0], int)):
+            for i in range(0, len(rhythmic_value)):
+                length = length + self._compute_rhythmic_value_length_in_seconds_given_single_rhythmic_value(rhythmic_value[i])
+        else: # this is single note in a tuplet - [number_of_divisions_in_tuplet, 'beat_tuplet_is_occuring_on']
+            for i in range(1, len(rhythmic_value)):
+                length = length + self._compute_rhythmic_value_length_in_seconds_given_single_rhythmic_value(rhythmic_value[i])
+                length = length / rhythmic_value[0]
+            
         return length
+    
+    def _compute_rhythmic_value_length_in_seconds_given_single_rhythmic_value(self, rhythmic_value):
+        if(rhythmic_value == 'two_hundred_fifty_sixth'):
+            return (self.length_of_quarter_in_seconds / 64)
+        elif(rhythmic_value == 'one_hundred_twenty_eighth'):
+            return (self.length_of_quarter_in_seconds / 32)
+        elif(rhythmic_value == 'sixty_fourth'):
+            return (self.length_of_quarter_in_seconds / 16)
+        elif(rhythmic_value == 'thirty_secondth'):
+            return (self.length_of_quarter_in_seconds / 8)
+        elif(rhythmic_value == 'sixteenth'):
+            return (self.length_of_quarter_in_seconds / 4)
+        elif(rhythmic_value == 'eighth'):
+            return (self.length_of_quarter_in_seconds / 2)
+        elif(rhythmic_value == 'quarter'):
+            return (self.length_of_quarter_in_seconds * 1)
+        elif(rhythmic_value == 'half'):
+            return (self.length_of_quarter_in_seconds * 2)
+        elif(rhythmic_value == 'whole'):
+            return (self.length_of_quarter_in_seconds * 4)
