@@ -1,8 +1,4 @@
 from tests.TestMIDI import TestMIDI
-from compoyse.midi.Note import Note
-from compoyse.midi.Measure import Measure
-from compoyse.midi.Voice import Voice
-from compoyse.midi.Meter import _Meter
 
 class TestSection(TestMIDI):
     def test_getVoiceAtIndex_givenIndex_shouldReturnVoice(self):

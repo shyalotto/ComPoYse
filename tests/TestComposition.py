@@ -1,9 +1,4 @@
 from tests.TestMIDI import TestMIDI
-from compoyse.midi.Note import Note
-from compoyse.midi.Measure import Measure
-from compoyse.midi.Voice import Voice
-from compoyse.midi.Section import Section
-from compoyse.midi.Meter import _Meter
 import os.path
 
 class TestComposition(TestMIDI):

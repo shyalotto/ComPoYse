@@ -1,7 +1,4 @@
 from tests.TestMIDI import TestMIDI
-from compoyse.midi.Note import Note
-from compoyse.midi.Measure import Measure
-from compoyse.midi.Meter import _Meter
 
 class TestVoice(TestMIDI):
     def test_getMeasureAtIndex_givenIndex_shouldReturnMeasure(self):
@@ -13,27 +10,8 @@ class TestVoice(TestMIDI):
         return
     
     def test_addMeasure_givenMeasure_shouldAddMeasure(self):
-        note_ten = Note()
-        note_ten.set_letter('E')
-        note_ten.set_octave(4)
-        note_ten.set_rhythmic_value(['quarter'])
-        note_ten._set_start_and_end(9, self.test_meter)
-        note_ten.set_velocity(100)
-        
-        note_eleven = Note()
-        note_eleven.set_letter('E')
-        note_eleven.set_octave(4)
-        note_eleven.set_rhythmic_value(['quarter'])
-        note_eleven._set_start_and_end(10, self.test_meter)
-        note_eleven.set_velocity(100)
-
-        measure_four = Measure()
-        measure_four.add_beat(note_ten)
-        measure_four.add_beat(note_eleven)
-        
-        self.test_voice.add_measure(measure_four)
-        
-        self.assertEqual(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 2, 'Number of beats is 2.')
+        self.test_voice.add_measure(self.measure_to_add)
+        self.assertEqual(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 1, 'Number of beats is 1.')
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):

@@ -1,6 +1,5 @@
 from tests.TestMIDI import TestMIDI
 import pretty_midi
-from compoyse.midi.Note import Note
 from compoyse.midi.Rest import Rest
 
 class TestMeasure(TestMIDI):
