@@ -1,7 +1,4 @@
 import pretty_midi
-from compoyse.midi.Voice import Voice
-from compoyse.midi.Section import Section
-from compoyse.midi.Meter import _Meter
 
 class Composition:
     def __init__(self):
