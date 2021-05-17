@@ -1,7 +1,6 @@
 from tests.TestMIDI import TestMIDI
 from compoyse.midi.Note import Note
 from compoyse.midi.Measure import Measure
-from compoyse.midi.Voice import Voice
 from compoyse.midi.Meter import _Meter
 
 class TestVoice(TestMIDI):
@@ -14,21 +13,18 @@ class TestVoice(TestMIDI):
         return
     
     def test_addMeasure_givenMeasure_shouldAddMeasure(self):
-        test_meter =  _Meter()
-        test_meter._set_length_of_quarter_in_seconds(60)
-        
         note_ten = Note()
         note_ten.set_letter('E')
         note_ten.set_octave(4)
         note_ten.set_rhythmic_value(['quarter'])
-        note_ten._set_start_and_end(9, test_meter)
+        note_ten._set_start_and_end(9, self.test_meter)
         note_ten.set_velocity(100)
         
         note_eleven = Note()
         note_eleven.set_letter('E')
         note_eleven.set_octave(4)
         note_eleven.set_rhythmic_value(['quarter'])
-        note_eleven._set_start_and_end(10, test_meter)
+        note_eleven._set_start_and_end(10, self.test_meter)
         note_eleven.set_velocity(100)
 
         measure_four = Measure()
@@ -41,12 +37,15 @@ class TestVoice(TestMIDI):
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
-        test_meter =  _Meter()
-        test_meter._set_length_of_quarter_in_seconds(60)
-        self.assertEqual(self.test_voice._get_midi_data(test_meter, 0).name, 'voice', 'Voices name is voice.')
+        self.assertEqual(self.test_voice._get_midi_data(self.test_meter, 0).name, 'voice', 'Voices name is voice.')
         return
     
     def test_setName_givenName_shouldSetName(self):
         self.test_voice.set_name('Trombone')
         self.assertEqual(self.test_voice.get_name(), 'Trombone', 'Name is trombone.')
         return
+    
+    def test_getLength_whenCalled_shouldReturnLength(self):
+        self.assertEqual(self.test_voice._get_length(self.test_meter), 9, 'Voices length is 9.')
+        return
+    

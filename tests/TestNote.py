@@ -1,7 +1,5 @@
 from tests.TestMIDI import TestMIDI
 from compoyse.midi.Note import Note
-from compoyse.midi.Meter import _Meter
-from compoyse.midi.MIDIExceptions import ValueNotValidMIDIValue
 
 class TestNote(TestMIDI):
     def test__init__whenCalled_shouldSetDefaultValues(self):
@@ -35,14 +33,21 @@ class TestNote(TestMIDI):
         return
     
     def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
-        test_meter =  _Meter()
-        test_meter._set_length_of_quarter_in_seconds(60)
-        
-        self.test_note._set_start_and_end(0, test_meter)
+        self.test_note._set_start_and_end(0, self.test_meter)
         
         test_note_midi_data = self.test_note._get_midi_data()
         
         self.assertEqual(test_note_midi_data.get_duration(), 1, "MIDI note calls pretty_midi function and is 1 second long.")
+        return
+    
+    def test_alterVeloicty_givenAmountToAlterBy_shouldAlterVelocity(self):
+        self.test_note.alter_velocity(10)
+        self.assertEqual(self.test_note.get_velocity(), 110, 'Notes veloicty is now 110.')
+        return 
+    
+    def test_alterOctave_givenAmountToAlterBy_shouldAlterOctave(self):
+        self.test_note.alter_octave(1)
+        self.assertEqual(self.test_note.get_octave(), 5, 'Notes octave is now 5.')
         return
     
     def test_isNote_whenCalled_shouldReturnTrue(self):

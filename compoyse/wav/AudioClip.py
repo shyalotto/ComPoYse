@@ -9,7 +9,7 @@ class AudioClip:
     def get_audio_file(self):
         return self.audio_file
     
-    def _get_start(self):
+    def get_start(self):
         return self.start
     
     def get_duration_of_playtime(self):
