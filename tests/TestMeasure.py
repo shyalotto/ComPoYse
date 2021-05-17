@@ -1,44 +1,13 @@
-import unittest
+from tests.TestMIDI import TestMIDI
 import pretty_midi
 from compoyse.midi.Note import Note
 from compoyse.midi.Rest import Rest
 from compoyse.midi.Measure import Measure
 from compoyse.midi.Meter import _Meter
 
-class TestMeasure(unittest.TestCase):
-    def setUp(self):
-        test_meter =  _Meter()
-        test_meter._set_length_of_quarter_in_seconds(60)
-        
-        note_one = Note()
-        note_one.set_letter('C')
-        note_one.set_octave(4)
-        note_one.set_rhythmic_value(['quarter'])
-        note_one._set_start_and_end(0, test_meter)
-        note_one.set_velocity(100)
-
-        note_two = Note()
-        note_two.set_letter('D')
-        note_two.set_octave(4)
-        note_two.set_rhythmic_value(['quarter'])
-        note_two._set_start_and_end(1, test_meter)
-        note_two.set_velocity(100)
-
-        note_three = Note()
-        note_three.set_letter('E')
-        note_three.set_octave(4)
-        note_three.set_rhythmic_value(['quarter'])
-        note_three._set_start_and_end(2, test_meter)
-        note_three.set_velocity(100)
-        
-        self.test_measure = Measure()
-        self.test_measure.add_beat(note_one)
-        self.test_measure.add_beat(note_two)
-        self.test_measure.add_beat(note_three)
-        return
-    
+class TestMeasure(TestMIDI):
     def test_getBeatAtIndex_givenIndex_shouldReturnBeat(self):
-        self.assertEqual(self.test_measure.get_beat_at_index(1)._get_length_in_seconds(), 1, 'Beats length is 1.')
+        self.assertEqual(self.test_measure.get_beat_at_index(1).get_rhythmic_value(), ['quarter'], 'Beats rhythmic value is [\'quarter\'].')
         return
     
     def test_getNumberOfBeats_whenCalled_shouldReturnNumberOfNotes(self):
