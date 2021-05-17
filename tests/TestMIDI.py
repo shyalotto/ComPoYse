@@ -30,7 +30,6 @@ class TestMIDI(unittest.TestCase):
         self.test_section.add_voice(self.test_voice)
         self.test_section.set_quarter_note_bpm(60)
         
-        
         self.test_composition = Composition()
         self.test_composition.add_section(self.test_section)
         self.test_composition.add_section(self.test_section)
