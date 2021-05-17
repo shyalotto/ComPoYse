@@ -13,10 +13,13 @@ class _Meter:
         if(not isinstance(rhythmic_value[0], int)):
             for i in range(0, len(rhythmic_value)):
                 length = length + self._compute_rhythmic_value_length_in_seconds_given_single_rhythmic_value(rhythmic_value[i])
-        else: # this is single note in a tuplet - [number_of_divisions_in_tuplet, 'beat_tuplet_is_occuring_on']
+        else: 
+            # this is single note in a tuplet - 
+            # [number_of_divisions_in_tuplet, 'part_of_rhythmic_value_tuplet_is_occuring_on_one', 'part_of_rhythmic_value_tuplet_is_occuring_on_two'...]
+            number_of_divisions_in_tuplet = rhythmic_value[0]
             for i in range(1, len(rhythmic_value)):
                 length = length + self._compute_rhythmic_value_length_in_seconds_given_single_rhythmic_value(rhythmic_value[i])
-                length = length / rhythmic_value[0]
+            length = length / number_of_divisions_in_tuplet
             
         return length
     
