@@ -8,7 +8,7 @@ class Note(_Beat):
                  velocity=0,
                  letter='C',
                  octave=0,
-                 rhythmic_value=''):
+                 rhythmic_value=['quarter']):
         self.velocity = _Velocity(velocity)
         self.note_letter = _NoteLetter(letter, octave)
         super().__init__(rhythmic_value)
