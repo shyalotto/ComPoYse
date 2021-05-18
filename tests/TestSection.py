@@ -17,11 +17,6 @@ class TestSection(TestMIDI):
         self.test_section.add_voice(self.voice_to_add)
         self.assertEqual(self.test_section.get_voice_at_index(3).get_number_of_measures(), 1, 'Number of measures is 1.')
         return
-    
-    def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
-        self.test_section.set_quarter_note_bpm(60)
-        self.assertEqual(len(self.test_section._get_midi_data(0)), 3, 'There are 3 midi instruments.')
-        return
         
     def test_getLength_whenCalled_shouldReturnLength(self):
         self.assertEqual(self.test_section._get_length(), 9, 'Sections length is 9.')

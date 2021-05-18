@@ -17,10 +17,4 @@ class TestComposition(TestMIDI):
     
     def test_getLength_givenCompositionHasSections_shouldReturnLength(self):
         self.assertEqual(self.test_composition.get_length(), 27, 'Compositions length is 27.')
-    
-    def test_writeMIDIData_whenCalled_shouldWriteMIDIData(self):
-        self.test_composition.write_midi_data()
-        self.assertTrue(os.path.exists("compoyse_composition.mid"))
-        os.remove("compoyse_composition.mid")
-        return
         

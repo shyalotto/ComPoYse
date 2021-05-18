@@ -14,10 +14,6 @@ class TestVoice(TestMIDI):
         self.assertEqual(self.test_voice.get_measure_at_index(3).get_number_of_beats(), 1, 'Number of beats is 1.')
         return
     
-    def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
-        self.assertEqual(self.test_voice._get_midi_data(self.test_meter, 0).name, 'voice', 'Voices name is voice.')
-        return
-    
     def test_setName_givenName_shouldSetName(self):
         self.test_voice.set_name('Trombone')
         self.assertEqual(self.test_voice.get_name(), 'Trombone', 'Name is trombone.')

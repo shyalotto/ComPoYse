@@ -24,11 +24,5 @@ class TestMeasure(TestMIDI):
         self.assertEqual(self.test_measure.get_beat_at_index(3)._get_length_in_seconds(), 2, 'Rests length is 2.')
         return
     
-    def test_getMIDIData_whenCalled_shouldReturnMIDIData(self):
-        test_current_place_in_time = 0
-        midi_instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program('Cello'), name='voice')
-        self.assertEqual(self.test_measure._get_midi_data(test_current_place_in_time, midi_instrument, self.test_meter).name, 'voice', 'Voice name is voice.')
-        return
-    
     def test_getLength_whenCalled_shouldReturnLength(self):
         self.assertEqual(self.test_measure._get_length(self.test_meter), 3, 'Measures length is 3.')

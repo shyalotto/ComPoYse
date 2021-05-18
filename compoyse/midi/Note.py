@@ -33,11 +33,10 @@ class Note(_Beat):
         return self.note_letter._get_midi_value()
     
     def _get_midi_data(self):
-        note = pretty_midi.Note(velocity=self.velocity._get_velocity(),
+        return pretty_midi.Note(velocity=self.velocity._get_velocity(),
                                 pitch=self.note_letter._get_midi_value(),
                                 start=self.time._get_start(),
                                 end=self.time._get_end())
-        return note
     
     def set_velocity(self, velocity):
         self.velocity._set_velocity(velocity)

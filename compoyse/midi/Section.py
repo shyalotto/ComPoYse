@@ -28,11 +28,8 @@ class Section:
         self.meter._set_length_of_quarter_in_seconds(quarter_note_bpm)
         return
     
-    def _get_midi_data(self, starting_place):
-        midi_instruments = []
-        for i in range(0, len(self.voices)):
-            midi_instruments.append(self.get_voice_at_index(i)._get_midi_data(self.meter, starting_place))
-        return midi_instruments
+    def _get_meter(self):
+        return self.meter
     
     def _get_length(self):
         length_of_each_voice = []
