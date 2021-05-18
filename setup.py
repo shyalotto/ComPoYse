@@ -1,4 +1,3 @@
-import pydub
 from setuptools import setup
 from setuptools import find_packages
 
@@ -9,7 +8,6 @@ setup(
     install_requires=[
         'pyaudio',
         'pretty_midi',
-        'pydub',
-        'shutil'
-    ]
+        'pydub'
+        ]
 )
